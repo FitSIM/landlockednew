@@ -95,7 +95,7 @@ function MagneticLink({
 }
 
 export default function Header({ locale }: { locale: string }) {
-  const initialNav = useMenus("header", locale);
+  const initialNav = useMenus("header");
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);

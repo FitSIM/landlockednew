@@ -18,7 +18,6 @@ export default function HomeHero() {
       variables: {
         categoryIds: [CMS_CATEGORIES.hero],
         status: "published",
-        language: "en",
       },
     });
     const posts = data?.cpPostList?.posts || [];

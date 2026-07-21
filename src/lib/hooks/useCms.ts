@@ -24,7 +24,9 @@ import { CMS_CATEGORIES } from "@/lib/cms-slots";
 // Queries are skipped until after hydration so the static shell renders
 // data-free and all fetching is visible in the browser's Network tab.
 
-const LANGUAGE = "en";
+// NOTE: no `language` variable is sent with queries — content is saved as
+// MN (default) and the API returns untranslated posts as empty/"Untitled"
+// when a language filter is applied.
 
 // News/event posts live in the legacy "Blog" category; the dedicated
 // "Мэдээ" (news) and "Арга хэмжээ" (events) categories hold future posts.
@@ -67,7 +69,6 @@ function useMounted() {
 export function usePageContent(slug: string) {
   const mounted = useMounted();
   const { data, error, loading } = useQuery<CpPagesData>(CP_PAGES, {
-    variables: { language: LANGUAGE },
     skip: !mounted,
   });
 
@@ -102,7 +103,6 @@ export function usePosts(type: string) {
     variables: {
       categoryIds: [BLOG_CATEGORY_ID, ...(dedicatedCategory ? [dedicatedCategory] : [])],
       status: "published",
-      language: LANGUAGE,
       limit: 50,
     },
     skip: !mounted,
@@ -145,7 +145,7 @@ export function usePosts(type: string) {
 export function usePost(slug: string, type: string) {
   const mounted = useMounted();
   const { data, error, loading } = useQuery<CpPostData>(CP_POST, {
-    variables: { slug, language: LANGUAGE },
+    variables: { slug },
     skip: !mounted,
   });
 
@@ -179,10 +179,10 @@ export function usePost(slug: string, type: string) {
   return { post, loading: stillLoading };
 }
 
-export function useMenus(kind: string, language: string = LANGUAGE) {
+export function useMenus(kind: string) {
   const mounted = useMounted();
   const { data } = useQuery<CpMenusData>(CP_MENUS, {
-    variables: { language, kind },
+    variables: { kind },
     skip: !mounted,
   });
   return (data?.cpMenus ?? []) as MenuItem[];
@@ -191,7 +191,6 @@ export function useMenus(kind: string, language: string = LANGUAGE) {
 export function usePageName(slug: string) {
   const mounted = useMounted();
   const { data } = useQuery<CpPagesData>(CP_PAGES, {
-    variables: { language: LANGUAGE },
     skip: !mounted,
   });
   const cmsName = data?.cpPages?.find((p) => matchesSlug(p.slug, slug))?.name;
@@ -218,7 +217,6 @@ export function usePageName(slug: string) {
 export function usePage(slug: string) {
   const mounted = useMounted();
   const { data, loading } = useQuery<CpPagesData>(CP_PAGES, {
-    variables: { language: LANGUAGE },
     skip: !mounted,
   });
   const page = data?.cpPages?.find((p) => matchesSlug(p.slug, slug)) ?? null;
@@ -233,7 +231,6 @@ export function useSlotPosts(categoryId: string | undefined) {
     variables: {
       categoryIds: [categoryId ?? ""],
       status: "published",
-      language: LANGUAGE,
       limit: 100,
     },
     skip: !mounted || !categoryId,

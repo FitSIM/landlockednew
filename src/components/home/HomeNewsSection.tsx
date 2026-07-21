@@ -73,7 +73,9 @@ export default function HomeNewsSection({ headingHtml }: { headingHtml?: string 
       data-pencil-name="News Section"
       className="pencil-page box-border w-full h-fit shrink-0 flex flex-col gap-[32px] p-[80px_160px] justify-start items-center bg-[#FFFFFF]"
     >
-      {headingHtml ? <div dangerouslySetInnerHTML={{ __html: headingHtml }} /> : null}
+      {headingHtml ? (
+        <div className="contents" dangerouslySetInnerHTML={{ __html: headingHtml }} />
+      ) : null}
 
       <Link
         href={`/en/${featured.slug}`}

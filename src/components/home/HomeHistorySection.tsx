@@ -36,16 +36,17 @@ export default function HomeHistorySection() {
           dangerouslySetInnerHTML={{ __html: post.content || "" }}
         />
       ))}
-      <Link
-        href="/about-brief-history"
-        data-pencil-name="History CTA"
-        className="box-border w-fit h-[40px] shrink-0 flex flex-row gap-0 p-[0px_24px] justify-center items-center bg-[#1E3A8A] rounded-[999px]"
-      >
+      <Link href="/about-brief-history" className="inline-block">
         <div
-          data-pencil-name="History CTA Label"
-          className="text-[14px]/[normal] box-border text-[#FFFFFF] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+          data-pencil-name="History CTA"
+          className="box-border w-fit h-[40px] shrink-0 flex flex-row gap-0 p-[0px_24px] justify-center items-center bg-[#1E3A8A] rounded-[999px]"
         >
-          Дэлгэрэнгүй
+          <div
+            data-pencil-name="History CTA Label"
+            className="text-[14px]/[normal] box-border text-[#FFFFFF] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+          >
+            Дэлгэрэнгүй
+          </div>
         </div>
       </Link>
     </div>

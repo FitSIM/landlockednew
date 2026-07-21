@@ -99,7 +99,9 @@ export default function HomeYouthSection({ headingHtml }: { headingHtml?: string
       data-pencil-name="Youth Section"
       className="pencil-page box-border w-full h-fit shrink-0 flex flex-col gap-[40px] p-[80px_160px] justify-start items-start bg-[#F5F5F5]"
     >
-      {headingHtml ? <div className="w-full" dangerouslySetInnerHTML={{ __html: headingHtml }} /> : null}
+      {headingHtml ? (
+        <div className="contents" dangerouslySetInnerHTML={{ __html: headingHtml }} />
+      ) : null}
       {rows.map((row, i) => (
         <div
           key={i}
