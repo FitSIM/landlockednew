@@ -1,0 +1,76 @@
+<div data-pencil-name="Hero" class="box-border w-full  shrink-0 flex flex-col gap-[24px] p-[80px_160px] justify-center items-center bg-cover bg-center bg-no-repeat h-auto min-h-[560px]" style="background-image:linear-gradient(180deg,rgba(30,58,138,0.82) 0%,rgba(15,36,71,0.88) 100%),url('/images/w5rYCp.png')"
+    >
+      <div
+        data-pencil-name="Eyebrow"
+        class="text-[16px]/[normal] box-border text-[#FFFFFF] font-['Space_Grotesk',system-ui,sans-serif] font-semibold tracking-[2px] text-left [white-space:nowrap]"
+      >
+        ДАЛАЙД ГАРЦГҮЙ ХӨГЖИЖ БУЙ ОРНУУДЫН
+      </div>
+      <div
+        data-pencil-name="Headline"
+        class="text-[52px]/[57px] box-border w-[900px] text-[#FFFFFF] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-center"
+      >
+        ОЛОН УЛСЫН СУДАЛГААНЫ ТӨВ
+      </div>
+      <div
+        data-pencil-name="Body"
+        class="text-[16px]/[26px] box-border w-[800px] text-[#FFFFFF] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-center"
+      >
+        Олон улсын судалгааны төв нь далайд гарцгүй хөгжиж буй орнуудын тогтвортой хөгжил, худалдаа,
+        дэд бүтцийн холболтыг дэмжихэд чиглэгдсэн бодлогын судалгаа, мэдээллийн төв байх бөгөөд
+        гишүүн орнууд болон олон улсын хамтрагчидтай хамтран ажилладаг.
+      </div>
+      <div
+        data-pencil-name="CTA"
+        class="box-border w-fit h-[48px] shrink-0 flex flex-row gap-0 p-[0px_32px] justify-center items-center bg-[#FFFFFF] rounded-[999px]"
+      >
+        <div
+          data-pencil-name="CTA Label"
+          class="text-[14px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+        >
+          Дэлгэрэнгүй
+        </div>
+      </div>
+      <div
+        data-pencil-name="Controls"
+        class="box-border w-full h-fit shrink-0 flex flex-row gap-0 justify-between items-start"
+      >
+        <button
+          data-pencil-name="Prev"
+          aria-label="Previous slide"
+          class="box-border w-[40px] shrink-0 h-[40px] flex flex-row gap-0 justify-center items-center bg-[#ffffff33] hover:bg-[#ffffff55] rounded-[20px] transition-colors"
+        >
+          <span class="block w-0 h-0 border-r-[8px] border-r-white border-t-[5px] border-t-transparent border-b-[5px] border-b-transparent"></span>
+        </button>
+        <div
+          data-pencil-name="Dots"
+          class="box-border w-fit shrink-0 h-fit flex flex-row gap-[8px] justify-start items-center"
+        >
+          <button
+            data-pencil-name="Dot 1"
+            data-index="0"
+            aria-label="Go to slide 1"
+            class="hero-dot box-border w-[8px] shrink-0 h-[8px] bg-[#FFFFFF] rounded-full"
+          ></button>
+          <button
+            data-pencil-name="Dot 2"
+            data-index="1"
+            aria-label="Go to slide 2"
+            class="hero-dot box-border w-[6px] shrink-0 h-[6px] bg-[#ffffff66] rounded-full"
+          ></button>
+          <button
+            data-pencil-name="Dot 3"
+            data-index="2"
+            aria-label="Go to slide 3"
+            class="hero-dot box-border w-[6px] shrink-0 h-[6px] bg-[#ffffff66] rounded-full"
+          ></button>
+        </div>
+        <button
+          data-pencil-name="Next"
+          aria-label="Next slide"
+          class="box-border w-[40px] shrink-0 h-[40px] flex flex-row gap-0 justify-center items-center bg-[#ffffff33] hover:bg-[#ffffff55] rounded-[20px] transition-colors"
+        >
+          <span class="block w-0 h-0 border-l-[8px] border-l-white border-t-[5px] border-t-transparent border-b-[5px] border-b-transparent"></span>
+        </button>
+      </div>
+    </div>

@@ -1,0 +1,1176 @@
+@import "tailwindcss";
+
+@source "../../public/page-body/**/*.html";
+@source "../../public/page-html/**/*.html";
+
+:root {
+  --background: #ffffff;
+  --foreground: #111827;
+  --navy: #1e3a8a;
+  --navy-light: #2563eb;
+  --navy-dark: #0f2447;
+  --accent: #06b6d4;
+  --gray-50: #f9fafb;
+  --gray-100: #f5f5f5;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-900: #111827;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-navy: var(--navy);
+  --color-navy-light: var(--navy-light);
+  --color-navy-dark: var(--navy-dark);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-space-grotesk);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: auto;
+  overflow-x: clip;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-space-grotesk), Arial, Helvetica, sans-serif;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+::selection {
+  background: rgba(30, 58, 138, 0.2);
+  color: var(--navy-dark);
+}
+
+/* ================================================================
+   LUXURY HERO
+   Full-bleed imagery, cinematic gradient, editorial typography.
+   ================================================================ */
+
+.luxury-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 70vh;
+  overflow: hidden;
+}
+
+.luxury-hero__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.luxury-hero:hover .luxury-hero__bg {
+  transform: scale(1.03);
+}
+
+.luxury-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 36, 71, 0.45) 0%,
+    rgba(15, 36, 71, 0.72) 55%,
+    rgba(15, 36, 71, 0.92) 100%
+  );
+}
+
+.luxury-hero__content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 120px 6vw;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+@media (min-width: 1536px) {
+  .luxury-hero__content {
+    padding: 140px 96px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .luxury-hero__content {
+    padding: 100px 5vw;
+  }
+}
+
+@media (max-width: 640px) {
+  .luxury-hero__content {
+    padding: 80px 20px;
+  }
+}
+
+.luxury-hero__eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.luxury-hero__title {
+  font-size: clamp(44px, 5.5vw, 84px);
+  font-weight: 700;
+  line-height: 1.05;
+  color: #ffffff;
+  max-width: 900px;
+}
+
+.luxury-hero__divider {
+  width: 72px;
+  height: 4px;
+  background: linear-gradient(90deg, #ffffff, var(--accent));
+  border-radius: 2px;
+}
+
+.luxury-hero__body {
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 620px;
+}
+
+/* ================================================================
+   LUXURY IMAGE CARD
+   Full-bleed background image, text overlaid, no white space.
+   ================================================================ */
+
+.luxury-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 380px;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.luxury-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 0;
+}
+
+.luxury-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 36, 71, 0.08) 0%,
+    rgba(15, 36, 71, 0.55) 55%,
+    rgba(15, 36, 71, 0.9) 100%
+  );
+  z-index: 1;
+  transition: opacity 0.45s ease;
+}
+
+.luxury-card:hover {
+  transform: translateY(-10px) scale(1.012);
+  box-shadow: 0 28px 60px -18px rgba(15, 36, 71, 0.35),
+    0 0 0 1px rgba(30, 58, 138, 0.12);
+}
+
+.luxury-card:hover::before {
+  transform: scale(1.1);
+}
+
+.luxury-card:hover::after {
+  opacity: 0.95;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 36, 71, 0.2) 0%,
+    rgba(15, 36, 71, 0.65) 55%,
+    rgba(15, 36, 71, 0.95) 100%
+  );
+}
+
+.luxury-card__content {
+  position: relative;
+  z-index: 2;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.luxury-card__eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.luxury-card__title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #ffffff;
+}
+
+.luxury-card__body {
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.luxury-card__cta {
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.luxury-card:hover .luxury-card__cta {
+  color: #ffffff;
+  transform: translateX(6px);
+}
+
+/* ================================================================
+   GLASSMORPHISM CARD VARIANT
+   ================================================================ */
+
+.luxury-card--glass {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.luxury-card--glass::after {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(15, 36, 71, 0.4) 60%,
+    rgba(15, 36, 71, 0.82) 100%
+  );
+}
+
+.luxury-card--editorial {
+  border-radius: 24px;
+}
+
+.luxury-card--editorial::after {
+  background: linear-gradient(
+    180deg,
+    rgba(15, 36, 71, 0.15) 0%,
+    rgba(15, 36, 71, 0.45) 45%,
+    rgba(15, 36, 71, 0.92) 100%
+  );
+}
+
+.luxury-card--editorial .luxury-card__title {
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+.luxury-card--editorial .luxury-card__body {
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.luxury-card--editorial:hover::after {
+  background: linear-gradient(
+    180deg,
+    rgba(15, 36, 71, 0.35) 0%,
+    rgba(15, 36, 71, 0.6) 45%,
+    rgba(15, 36, 71, 0.98) 100%
+  );
+}
+
+/* ================================================================
+   EDITORIAL SECTIONS
+   ================================================================ */
+
+.luxury-section {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 80px 6vw;
+  background: var(--gray-100);
+}
+
+@media (min-width: 1536px) {
+  .luxury-section {
+    padding: 100px 96px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .luxury-section {
+    padding: 64px 5vw;
+  }
+}
+
+@media (max-width: 640px) {
+  .luxury-section {
+    padding: 48px 20px;
+  }
+}
+
+.luxury-section__heading {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 48px;
+}
+
+.luxury-section__title {
+  font-size: clamp(30px, 3.5vw, 44px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--navy-dark);
+}
+
+.luxury-section__divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--navy), var(--accent));
+  border-radius: 2px;
+}
+
+.luxury-section__body {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--gray-500);
+  max-width: 640px;
+}
+
+/* ================================================================
+   ANIMATIONS
+   ================================================================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite linear;
+}
+
+/* ================================================================
+   PENCIL PAGE BASE
+   ================================================================ */
+
+/* Hide original Pencil hero when a luxury hero is injected above it */
+.pencil-page--with-injected-hero > [data-pencil-name="Hero"]:first-child {
+  display: none !important;
+}
+
+.pencil-page {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.pencil-page > * {
+  width: 100% !important;
+}
+
+.reports-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.reports-carousel {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ================================================================
+   PENCIL PAGE LUXURY TRANSFORMATIONS
+   ================================================================ */
+
+/* Remove small icon frames from cards */
+.pencil-page [data-pencil-name="Icon Frame"],
+.pencil-page [data-pencil-name="Icon"] {
+  display: none !important;
+}
+
+/* Remove icon-only decorative frames but keep cards intact */
+.pencil-page [data-pencil-name*="Card"]:has(> [data-pencil-name="Icon Frame"]) {
+  gap: 0 !important;
+}
+
+/* Only wrap Pencil card/resource grids that have 3+ equal-width children */
+.pencil-page [class*="flex:1_1_0"],
+.pencil-page [style*="flex:1_1_0"],
+.pencil-page [style*="flex: 1 1 0"] {
+  min-width: 0;
+}
+
+.pencil-page [class*="white-space:nowrap"],
+.pencil-page [style*="white-space:nowrap"],
+.pencil-page [style*="white-space: nowrap"] {
+  white-space: normal !important;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Alternating body section backgrounds for visual diversity */
+.pencil-page--with-injected-hero > [data-pencil-name="Body"],
+.pencil-page--with-injected-hero > [data-pencil-name="Tabs"] + [data-pencil-name="Body"],
+.pencil-page--with-injected-hero > [data-pencil-name="Priority Tabs"] + [data-pencil-name="Body"] {
+  background: linear-gradient(180deg, #f5f7fb 0%, #ffffff 100%) !important;
+}
+
+.pencil-page--with-injected-hero > [data-pencil-name="Body"]:nth-of-type(odd) {
+  background: linear-gradient(180deg, #ffffff 0%, #f0f4fa 100%) !important;
+}
+
+/* Quote / highlight cards with navy gradient */
+.pencil-page [data-pencil-name="Quote Card"],
+.pencil-page [class*="bg-[#1E3A8A]"][class*="rounded-[12px]"] {
+  background: linear-gradient(135deg, #1e3a8a 0%, #0f2447 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 20px 50px -15px rgba(15, 36, 71, 0.25) !important;
+}
+
+/* Intro cards with subtle navy border and glass effect */
+.pencil-page [data-pencil-name="Intro"],
+.pencil-page [data-pencil-name*="Intro Row"] > [class*="bg-[#FFFFFF]"] {
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(30, 58, 138, 0.12) !important;
+  box-shadow: 0 12px 40px -12px rgba(15, 36, 71, 0.1) !important;
+}
+
+/* Toggle / tab buttons luxury styling */
+.pencil-page [data-pencil-name="Hero Buttons"] a,
+.pencil-page [data-pencil-name*="Tab"] a,
+.pencil-page [data-pencil-name*="Priority Tab"] {
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  border: 1px solid rgba(30, 58, 138, 0.15) !important;
+  box-shadow: 0 4px 15px -6px rgba(15, 36, 71, 0.1) !important;
+}
+
+.pencil-page [data-pencil-name="Hero Buttons"] a:hover,
+.pencil-page [data-pencil-name*="Tab"] a:hover,
+.pencil-page [data-pencil-name*="Priority Tab"]:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 12px 30px -8px rgba(15, 36, 71, 0.2) !important;
+}
+
+/* Active toggle button */
+.pencil-page [data-pencil-name="Hero Buttons"] a[class*="bg-[#1E3A8A]"],
+.pencil-page [data-pencil-name*="Tab"] a[class*="bg-[#1E3A8A]"] {
+  background: linear-gradient(135deg, #1e3a8a 0%, #0f2447 100%) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+}
+
+/* Priority tabs row styling */
+.pencil-page [data-pencil-name="Priority Tabs"] {
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2f8 100%) !important;
+  border-bottom: 1px solid rgba(30, 58, 138, 0.08) !important;
+}
+
+.pencil-page [data-pencil-name="Priority Tab"] {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-top: 3px solid transparent !important;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+.pencil-page [data-pencil-name="Priority Tab"]:hover {
+  background: #ffffff !important;
+  border-top-color: var(--accent) !important;
+  transform: translateY(-4px);
+  box-shadow: 0 16px 35px -10px rgba(15, 36, 71, 0.15) !important;
+}
+
+/* Stat cards with navy gradient contrast */
+.pencil-page [data-pencil-name*="Stat Card"] {
+  background: linear-gradient(135deg, #1e3a8a 0%, #0f2447 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pencil-page [data-pencil-name*="Stat Card"]:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px -12px rgba(15, 36, 71, 0.3) !important;
+}
+
+.pencil-page [data-pencil-name*="Stat Card"] [class*="text-[#1E3A8A]"] {
+  color: #ffffff !important;
+}
+
+.pencil-page [data-pencil-name*="Stat Card"] [class*="text-[#6B7280]"] {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* Intro image placeholder replaced with navy gradient + subtle pattern */
+.pencil-page [data-pencil-name="Intro Image"] {
+  background: linear-gradient(135deg, #1e3a8a 0%, #0f2447 100%),
+    url("/images/luxury/about.jpg") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-blend-mode: overlay !important;
+}
+
+/* Section heading underlines to gradient */
+.pencil-page [data-pencil-name="Underline"],
+.pencil-page [data-pencil-name="Hero Underline"] {
+  background: linear-gradient(90deg, #1e3a8a, #06b6d4) !important;
+}
+
+/* ------------------------------------------------------------------
+   FOOTER LUXURY
+   ------------------------------------------------------------------ */
+
+footer,
+footer [class*="bg-[#1E3A8A]"] {
+  background: linear-gradient(180deg, #0f2447 0%, #050a14 100%) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+footer a {
+  color: rgba(255, 255, 255, 0.75) !important;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+footer a:hover {
+  color: #ffffff !important;
+}
+
+footer [class*="text-[#9CA3AF]"] {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* ------------------------------------------------------------------
+   GLOBAL CARD STABILITY OVERRIDES
+   ------------------------------------------------------------------ */
+
+.pencil-page [class*="rounded-[16px]"],
+.pencil-page [class*="rounded-[12px]"] {
+  overflow: hidden;
+}
+
+.pencil-page .flex-row:has(> div[class*="flex:1_1_0"]):has(> div:nth-child(2)):not(:has(> [data-pencil-name*="News Card"])) {
+  align-items: stretch;
+}
+
+.pencil-page .flex-row:has(> div[class*="flex:1_1_0"]):has(> div:nth-child(2)):not(:has(> [data-pencil-name*="News Card"])) > div[class*="flex:1_1_0"] {
+  height: auto !important;
+  min-width: 0;
+}
+
+.pencil-page [data-pencil-name="Youth Section"] [data-pencil-name*="Event Card"] {
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: 420px !important;
+}
+
+.pencil-page [data-pencil-name="Youth Section"] [data-pencil-name*="Event Card"] [data-pencil-name="Content"] {
+  flex: 0 0 auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.pencil-page [data-pencil-name="Youth Section"] [data-pencil-name*="Event Card"] [data-pencil-name="Link"] {
+  margin-top: auto !important;
+}
+
+.pencil-page [data-pencil-name="Youth Section"] [data-pencil-name*="Event Card"] [data-pencil-name="Desc"] {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+.pencil-page [data-pencil-name="Title"][class*="text-[14px]"],
+.pencil-page [data-pencil-name="Title"][class*="text-[15px]"],
+.pencil-page [data-pencil-name="Title"][class*="text-[16px]"],
+.pencil-page [data-pencil-name="Title"][class*="text-[17px]"],
+.pencil-page [data-pencil-name="Title"][class*="text-[18px]"],
+.pencil-page [data-pencil-name="Title"][class*="text-[22px]"] {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0;
+}
+
+.pencil-page .flex-row > div > div,
+.pencil-page .flex-row > a > div {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.pencil-page .bg-cover {
+  background-size: cover !important;
+}
+
+.pencil-page .bg-center {
+  background-position: center !important;
+}
+
+/* ------------------------------------------------------------------
+   LUXURY HOVER INTERACTIONS
+   ------------------------------------------------------------------ */
+
+.pencil-page .flex-row > div[class*="bg-[#FFFFFF]"],
+.pencil-page .flex-row > div[class*="shadow"],
+.pencil-page [data-pencil-name*="Card"],
+.pencil-page [data-pencil-name*="Doc"],
+.pencil-page [data-pencil-name*="Category"] {
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.45s ease;
+}
+
+.pencil-page .flex-row > div[class*="bg-[#FFFFFF]"]:hover,
+.pencil-page .flex-row > div[class*="shadow"]:hover,
+.pencil-page [data-pencil-name*="Card"]:hover,
+.pencil-page [data-pencil-name*="Doc"]:hover,
+.pencil-page [data-pencil-name*="Category"]:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 46px -14px rgba(15, 36, 71, 0.18),
+    0 0 0 1px rgba(30, 58, 138, 0.08);
+}
+
+.pencil-page [data-pencil-name*="Thumb"],
+.pencil-page [data-pencil-name*="Photo"],
+.pencil-page [data-pencil-name*="Featured Image"] {
+  transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pencil-page [data-pencil-name*="Card"]:hover [data-pencil-name*="Thumb"],
+.pencil-page [data-pencil-name*="Card"]:hover [data-pencil-name*="Photo"],
+.pencil-page [data-pencil-name*="Doc"]:hover [data-pencil-name*="Thumb"],
+.pencil-page [data-pencil-name*="Featured Wrap"]:hover [data-pencil-name*="Featured Image"] {
+  transform: scale(1.06);
+}
+
+.pencil-page [class*="rounded-[999px]"] {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pencil-page [class*="rounded-[999px]"]:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 0 8px 20px -6px rgba(30, 58, 138, 0.22);
+}
+
+/* ------------------------------------------------------------------
+   HEAVY LUXURY ENHANCEMENTS
+   ------------------------------------------------------------------ */
+
+.pencil-page [class*="rounded-[999px]"],
+.pencil-page [data-pencil-name="CTA"],
+.pencil-page button[class*="rounded-full"] {
+  position: relative;
+  overflow: hidden;
+}
+
+.pencil-page [class*="rounded-[999px]"]::before,
+.pencil-page [data-pencil-name="CTA"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.35) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.pencil-page [class*="rounded-[999px]"]:hover::before,
+.pencil-page [data-pencil-name="CTA"]:hover::before {
+  opacity: 1;
+}
+
+.pencil-page [data-pencil-name="Headline"],
+.pencil-page [data-pencil-name="Hero Title"],
+.pencil-page [data-pencil-name="Title"][class*="text-[28px]"],
+.pencil-page [data-pencil-name="Title"][class*="text-[36px]"],
+.pencil-page [data-pencil-name="Title"][class*="text-[40px]"],
+.pencil-page [data-pencil-name="Title"][class*="text-[52px]"] {
+  background-size: 200% auto;
+}
+
+.pencil-page [data-pencil-name*="Thumb"],
+.pencil-page [data-pencil-name*="Photo"],
+.pencil-page [data-pencil-name*="Featured Image"] {
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 1s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pencil-page .reveal-hidden [data-pencil-name*="Thumb"],
+.pencil-page .reveal-hidden [data-pencil-name*="Photo"],
+.pencil-page .reveal-hidden [data-pencil-name*="Featured Image"] {
+  clip-path: inset(0 100% 0 0);
+}
+
+.pencil-page [data-pencil-name*="Card"]:hover,
+.pencil-page [data-pencil-name*="Doc"]:hover,
+.pencil-page [data-pencil-name*="Category"]:hover {
+  box-shadow: 0 22px 50px -15px rgba(15, 36, 71, 0.18),
+    0 0 0 1px rgba(30, 58, 138, 0.1);
+}
+
+.pencil-page a:not([class*="rounded"]) {
+  position: relative;
+}
+
+.pencil-page a:not([class*="rounded"])::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pencil-page a:not([class*="rounded"]):hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.hero-dot {
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pencil-page > div {
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: skewY(var(--scroll-skew, 0deg));
+}
+
+.pencil-page.reveal-hidden > div {
+  opacity: 0;
+  transform: translateY(40px) skewY(var(--scroll-skew, 0deg));
+}
+
+.pencil-page.reveal-visible > div {
+  opacity: 1;
+  transform: translateY(0) skewY(var(--scroll-skew, 0deg));
+}
+
+/* ================================================================
+   RESPONSIVE REFLOW — base fluid overrides for Pencil pages
+   ================================================================ */
+
+/* Force all Pencil top-level sections to be full-width with fluid side padding */
+.pencil-page > [class*="p-["] {
+  width: 100% !important;
+  max-width: 1440px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Convert fixed 160px side padding to fluid 6vw by default */
+.pencil-page .p-\[80px_160px\],
+.pencil-page .p-\[100px_160px\],
+.pencil-page .p-\[60px_160px\],
+.pencil-page .p-\[64px_160px\],
+.pencil-page .p-\[48px_160px\],
+.pencil-page .p-\[80px_200px\],
+.pencil-page .p-\[100px_200px\] {
+  padding-left: 6vw !important;
+  padding-right: 6vw !important;
+}
+
+/* Stop fixed widths from blowing up layout */
+.pencil-page [class*="w-\[800px\]"],
+.pencil-page [class*="w-\[820px\]"],
+.pencil-page [class*="w-\[840px\]"],
+.pencil-page [class*="w-\[900px\]"],
+.pencil-page [class*="w-\[700px\]"],
+.pencil-page [class*="w-\[526px\]"],
+.pencil-page [class*="w-\[520px\]"] {
+  width: 100% !important;
+  max-width: 100% !important;
+  white-space: normal !important;
+}
+
+/* Remove fixed heights on text blocks */
+.pencil-page [class*="h-\[47px\]"],
+.pencil-page [class*="h-\[50px\]"],
+.pencil-page [class*="h-\[43px\]"],
+.pencil-page [class*="h-\[61px\]"],
+.pencil-page [class*="h-\[76px\]"] {
+  height: auto !important;
+}
+
+/* Clamp oversized titles */
+.pencil-page [class*="text-\[52px\]"],
+.pencil-page [class*="text-\[64px\]"],
+.pencil-page [class*="text-\[42px\]"] {
+  font-size: clamp(32px, 5vw, 56px) !important;
+  line-height: 1.1 !important;
+  white-space: normal !important;
+}
+
+.pencil-page [class*="text-\[36px\]"] {
+  font-size: clamp(26px, 3.5vw, 38px) !important;
+  line-height: 1.15 !important;
+  white-space: normal !important;
+}
+
+.pencil-page [class*="text-\[32px\]"] {
+  font-size: clamp(24px, 3vw, 32px) !important;
+  line-height: 1.2 !important;
+  white-space: normal !important;
+}
+
+.pencil-page [class*="text-\[22px\]"] {
+  font-size: clamp(16px, 1.8vw, 22px) !important;
+  line-height: 1.5 !important;
+  white-space: normal !important;
+}
+
+.pencil-page [class*="text-\[120px\]"] {
+  font-size: clamp(48px, 8vw, 100px) !important;
+  line-height: 1 !important;
+}
+
+/* Cap card min-heights so they don't dominate the viewport */
+.pencil-page [class*="min-h-\[319px\]"],
+.pencil-page [class*="min-h-\[473px\]"],
+.pencil-page [class*="min-h-\[460px\]"],
+.pencil-page [class*="min-h-\[480px\]"],
+.pencil-page [class*="min-h-\[420px\]"] {
+  min-height: 0 !important;
+}
+
+/* Keep news/event cards from growing too tall */
+.pencil-page [data-pencil-name*="Event Card"],
+.pencil-page [data-pencil-name*="News Card"] {
+  height: auto !important;
+}
+
+/* Featured wrap should stay horizontal on desktop but stack gracefully */
+.pencil-page [data-pencil-name="Small News Cards"] {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 20px !important;
+  width: 100% !important;
+}
+
+.pencil-page [data-pencil-name="Small News Cards"] > a,
+.pencil-page [data-pencil-name="Small News Cards"] > div {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  width: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.pencil-page [data-pencil-name="Small News Cards"] [data-pencil-name*="News Card Title"] {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 50px;
+}
+
+.pencil-page [data-pencil-name="Featured Wrap"] {
+  flex-wrap: nowrap !important;
+}
+
+.pencil-page [data-pencil-name="Featured Image"] {
+  width: 100% !important;
+  max-width: 520px;
+  min-height: 240px !important;
+  flex: 1 1 360px;
+  border-radius: 16px 0 0 16px;
+}
+
+.pencil-page [data-pencil-name="Featured Text"] {
+  flex: 1 1 360px;
+  min-width: 0;
+}
+
+@media (max-width: 1280px) {
+  .luxury-hero__content,
+  .luxury-section {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  .pencil-page .p-\[80px_160px\],
+  .pencil-page .p-\[100px_160px\],
+  .pencil-page .p-\[60px_160px\],
+  .pencil-page .p-\[64px_160px\],
+  .pencil-page .p-\[48px_160px\],
+  .pencil-page .p-\[80px_200px\],
+  .pencil-page .p-\[100px_200px\] {
+    padding-left: 5vw !important;
+    padding-right: 5vw !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .luxury-hero__content,
+  .luxury-section {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .pencil-page .p-\[80px_160px\],
+  .pencil-page .p-\[100px_160px\],
+  .pencil-page .p-\[60px_160px\],
+  .pencil-page .p-\[64px_160px\],
+  .pencil-page .p-\[48px_160px\],
+  .pencil-page .p-\[80px_200px\],
+  .pencil-page .p-\[100px_200px\] {
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+  }
+
+  .pencil-page .p-\[32px\],
+  .pencil-page .p-\[28px\],
+  .pencil-page .p-\[24px\] {
+    padding: 20px !important;
+  }
+
+  .pencil-page [data-pencil-name="Featured Image"] {
+    max-width: 100%;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .pencil-page .flex-row:has(> div[class*="flex:1_1_0"]):has(> div:nth-child(2)):not(:has(> [data-pencil-name*="News Card"])) {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .pencil-page .flex-row:has(> div[class*="flex:1_1_0"]):has(> div:nth-child(2)):not(:has(> [data-pencil-name*="News Card"])) > div[class*="flex:1_1_0"] {
+    flex: 1 1 calc(50% - 10px) !important;
+    min-width: 260px;
+  }
+
+  .pencil-page .flex-row:has(> div:nth-child(5)) {
+    flex-wrap: wrap;
+  }
+
+  .pencil-page .flex-row:has(> div:nth-child(5)) > div {
+    flex: 1 1 calc(33.333% - 14px);
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .luxury-hero__content,
+  .luxury-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .pencil-page .p-\[80px_160px\],
+  .pencil-page .p-\[100px_160px\],
+  .pencil-page .p-\[60px_160px\],
+  .pencil-page .p-\[64px_160px\],
+  .pencil-page .p-\[48px_160px\],
+  .pencil-page .p-\[80px_200px\],
+  .pencil-page .p-\[100px_200px\] {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .pencil-page [class*="text-\[52px\]"],
+  .pencil-page [class*="text-\[64px\]"],
+  .pencil-page [class*="text-\[42px\]"] {
+    font-size: 28px !important;
+    line-height: 1.15 !important;
+  }
+
+  .pencil-page [class*="text-\[36px\]"] {
+    font-size: 24px !important;
+  }
+
+  .pencil-page [class*="text-\[32px\]"] {
+    font-size: 22px !important;
+  }
+
+  .pencil-page [class*="text-\[22px\]"] {
+    font-size: 16px !important;
+  }
+
+  .pencil-page .flex-row:has(> div[class*="flex:1_1_0"]):has(> div:nth-child(2)):not(:has(> [data-pencil-name*="News Card"])) {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .pencil-page .flex-row:has(> div[class*="flex:1_1_0"]):has(> div:nth-child(2)):not(:has(> [data-pencil-name*="News Card"])) > div[class*="flex:1_1_0"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+  }
+
+  .pencil-page .flex-row:has(> div:nth-child(5)) > div {
+    flex: 1 1 calc(50% - 10px);
+    min-width: 140px;
+  }
+
+  .pencil-page .flex-row:has(> a[href*="about"]) {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .luxury-hero__content,
+  .luxury-section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .pencil-page .p-\[80px_160px\],
+  .pencil-page .p-\[100px_160px\],
+  .pencil-page .p-\[60px_160px\],
+  .pencil-page .p-\[64px_160px\],
+  .pencil-page .p-\[48px_160px\],
+  .pencil-page .p-\[80px_200px\],
+  .pencil-page .p-\[100px_200px\] {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .pencil-page .flex-row:has(> div:nth-child(5)) > div {
+    flex: 1 1 100%;
+  }
+}
+
+/* ================================================================
+   LLDCs / PRIORITY PAGES — targeted overflow fixes
+   ================================================================ */
+
+/* Prevent LLDCs priority tabs from causing horizontal scroll */
+.pencil-page [data-pencil-name="Priority Tabs"] {
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  justify-content: center !important;
+}
+
+.pencil-page [data-pencil-name="Priority Tabs"] > * {
+  flex: 1 1 auto !important;
+  min-width: 120px;
+  max-width: 100%;
+}
+
+.pencil-page [data-pencil-name="Priority Tabs"] [class*="white-space:nowrap"] {
+  white-space: normal !important;
+}
+
+@media (min-width: 1024px) {
+  .pencil-page [data-pencil-name="Priority Tabs"] > * {
+    flex: 1 1 0 !important;
+    min-width: 0;
+  }
+}
+
+/* Responsive intro rows on LLDCs pages */
+@media (max-width: 1024px) {
+  .pencil-page [data-pencil-name="Intro Row"] {
+    flex-direction: column !important;
+    gap: 28px !important;
+  }
+
+  .pencil-page [data-pencil-name="Intro Row"] > * {
+    width: 100% !important;
+    flex: none !important;
+  }
+}

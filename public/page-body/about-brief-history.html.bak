@@ -1,0 +1,370 @@
+<div data-pencil-name="Hero" class="box-border w-full  shrink-0 flex flex-col gap-[12px] p-[60px_160px] justify-center items-center bg-cover bg-center bg-no-repeat h-auto min-h-[280px]" style="background-image:linear-gradient(180deg,rgba(30,58,138,0.82) 0%,rgba(15,36,71,0.88) 100%),url('/images/IMNBD.png')"
+    >
+      <div
+        data-pencil-name="Hero Title"
+        class="text-[36px]/[normal] box-border text-[#FFFFFF] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+      >
+        Бидний тухай
+      </div>
+      <div
+        data-pencil-name="Hero Underline"
+        class="box-border w-[60px] h-[4px] shrink-0 bg-[#FFFFFF] rounded-[2px]"
+      ></div>
+    </div>
+<div
+      data-pencil-name="Tabs"
+      class="box-border w-full h-fit shrink-0 flex flex-row gap-[12px] p-[48px_160px] justify-center items-start bg-[#FFFFFF]"
+    >
+      <a href="./about-brief-history" data-pencil-name="Tab Товч түүх" class="box-border w-fit shrink-0 h-[40px] flex flex-row gap-0 p-[0px_20px] justify-center items-center bg-[#1E3A8A] rounded-[999px]"><div
+          data-pencil-name="Tab Label"
+          class="text-[13px]/[normal] box-border text-[#FFFFFF] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+        >
+          Товч түүх
+        </div></a>
+      <a href="./about-executive-greeting" data-pencil-name="Tab Мэндчилгээ" class="box-border w-fit shrink-0 h-[40px] flex flex-row gap-0 p-[0px_20px] justify-center items-center bg-[#FFFFFF] rounded-[999px]"><div
+          data-pencil-name="Tab Label"
+          class="text-[13px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+        >
+          Мэндчилгээ
+        </div></a>
+      <a href="./about-goals" data-pencil-name="Tab Бидний зорилго" class="box-border w-fit shrink-0 h-[40px] flex flex-row gap-0 p-[0px_20px] justify-center items-center bg-[#FFFFFF] rounded-[999px]"><div
+          data-pencil-name="Tab Label"
+          class="text-[13px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+        >
+          Бидний зорилго
+        </div></a>
+      <a href="./about-multilateral-agreement" data-pencil-name="Tab Олон талт хэлэлцээр" class="box-border w-fit shrink-0 h-[40px] flex flex-row gap-0 p-[0px_20px] justify-center items-center bg-[#FFFFFF] rounded-[999px]"><div
+          data-pencil-name="Tab Label"
+          class="text-[13px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+        >
+          Олон талт хэлэлцээр
+        </div></a>
+    </div>
+<div
+      data-pencil-name="Body"
+      class="box-border w-full h-fit shrink-0 flex flex-col gap-[48px] p-[80px_160px] justify-start items-start bg-[#F5F5F5]"
+    >
+      <div
+        data-pencil-name="Section Heading"
+        class="box-border w-full h-fit shrink-0 flex flex-col gap-[10px] justify-start items-start"
+      >
+        <div
+          data-pencil-name="Title"
+          class="text-[24px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+        >
+          Олон улсын судалгааны төвийн түүх
+        </div>
+        <div
+          data-pencil-name="Underline"
+          class="box-border w-[48px] h-[4px] shrink-0 bg-[#1E3A8A] rounded-[2px]"
+        ></div>
+      </div>
+      <div
+        data-pencil-name="P1"
+        class="text-[14px]/[25px] box-border w-full text-[#374151] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left"
+      >
+        Далайд гарцгүй хөгжиж буй орнуудын олон улсын судалгааны төвийг байгуулах санаа анх 2003 онд
+        Казахстаны Алматы хотод болсон Олон улсын сайд нарын бага хуралдаанаас эхэлсэн. Энэ
+        хуралдаан НҮБ-ын Ерөнхий Ассамблейн 58/210 дугаар тогтоолоор тодорхойлсон далайд гарцгүй
+        орнуудын тээвэр, дэд бүтцийн асуудлын хэлэлцүүлэг, Алтайн уул ажиллагааны хөтөлбөрийг
+        баталсан юм. Уг хөтөлбөр далайд гарцгүй орнуудын худалдаа, тээврийн бэрхшээлийг сааруулах,
+        олон улсын зах зээлд гарц хүртээх чиглэлээр бодлого, дэг журам, техникийн туслалцааны арга
+        хэмжээг хэрэгжүүлэхийг зорьсон. Энэ нь далайд гарцгүй хөгжиж буй орнуудын нийтлэг асуудлыг
+        олон улсын хэмжээнд хөндөж, хамтын шийдэл боловсруулах анхдагч алхам байв.
+      </div>
+      <div
+        data-pencil-name="Quote Card"
+        class="box-border w-full h-fit shrink-0 flex flex-col gap-[12px] p-[32px] justify-start items-start bg-[#1E3A8A] rounded-[12px]"
+      >
+        <div
+          data-pencil-name="Quote Mark"
+          class="text-[48px]/[normal] box-border opacity-[0.3] text-[#FFFFFF] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+        >
+          “
+        </div>
+        <div
+          data-pencil-name="Quote Text"
+          class="text-[16px]/[27px] box-border w-full text-[#FFFFFF] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left"
+        >
+          Хэрэв бид хамтын ажиллагааныхаа үр ашгийг дээшлүүлэхийг хүсвэл онцгой шинжилгээний
+          чадвартай байх ёстой. Энэ нь нийслэл хотуудын нэгээр олон улсын судалгааны төв байгуулах
+          замаар хүрч болно.
+        </div>
+        <div
+          data-pencil-name="Quote Attribution"
+          class="text-[12px]/[normal] box-border text-[#DBEAFE] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+        >
+          — Монгол Улсын Ерөнхийлөгч, 2006 оны Хавана хотын уулзалт
+        </div>
+      </div>
+      <div
+        data-pencil-name="Section Heading"
+        class="box-border w-full h-fit shrink-0 flex flex-col gap-[10px] justify-start items-start"
+      >
+        <div
+          data-pencil-name="Title"
+          class="text-[24px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+        >
+          Санаачилга (2006)
+        </div>
+        <div
+          data-pencil-name="Underline"
+          class="box-border w-[48px] h-[4px] shrink-0 bg-[#1E3A8A] rounded-[2px]"
+        ></div>
+      </div>
+      <div
+        data-pencil-name="P2"
+        class="text-[14px]/[25px] box-border w-full text-[#374151] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left"
+      >
+        Алматы хотод өрнүүлсэн дараа далайд гарцгүй орнуудын худалдааны асуудлаар илүү гүнзгий
+        судалгаа, олон талт хэлэлцүүлэг хийх шаардлага тулгарсан. Энэ хүрээнд олон улсын судалгааны
+        төв байгуулах санаа улам бодитой болж, 2006 онд Монгол Улсын Ерөнхийлөгчийн Хавана хотод
+        болсон далайд гарцгүй орнуудын төрийн тэргүүн нарын уулзалтад нийтлэг сэргэлтийн ордны,
+        далайд гарцгүй орнууд бүтцийн хөгжлийн дэд шинжилгээний талаар бодлогын баримт бичгийг
+        танилцуулсан. Монгол Улсын Ерөнхийлөгчийн 2006 оны мэндчилгээндээ санаачлагыг чангартаж дэм
+        шинжилгээ нь далайд гарцгүй орнуудын нийтлэг бэрхшээлийг тодорхойлох, шийдвэрлэх арга замыг
+        тодорхойлох, бодлогын ажилд нэг мөртөөр туслах зорилгыг харуулжээ. Энэ үеэр олон улсын
+        судалгааны төв нь далайд гарцгүй орнуудын бодлого боловсруулагчдад зориулсан нотолгоонд
+        суурилсан мэдээлэл, шинжилгээний үйлчилгээ үзүүлэх үндэс суурь болох нь тодорхой болсон.
+      </div>
+      <div
+        data-pencil-name="Chapter Улаанбаатарын дэлхийн арга хэмжээ (2007)"
+        class="box-border w-full h-fit shrink-0 flex flex-row gap-[32px] justify-start items-start"
+      >
+        <div
+          data-pencil-name="Text"
+          class="box-border [flex:1_1_0] flex flex-col gap-[12px] justify-start items-start  h-auto"
+        >
+          <div
+            data-pencil-name="Section Heading"
+            class="box-border w-full h-fit shrink-0 flex flex-col gap-[10px] justify-start items-start"
+          >
+            <div
+              data-pencil-name="Title"
+              class="text-[24px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+            >
+              Улаанбаатарын дэлхийн арга хэмжээ (2007)
+            </div>
+            <div
+              data-pencil-name="Underline"
+              class="box-border w-[48px] h-[4px] shrink-0 bg-[#1E3A8A] rounded-[2px]"
+            ></div>
+          </div>
+          <div
+            data-pencil-name="Paragraph"
+            class="text-[14px]/[24px] box-border w-full text-[#6B7280] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left"
+          >
+            2007 онд Улаанбаатар хотод Далайд гарцгүй хөгжиж буй орнууд болон тэдгээрийн хөгжлийн
+            арга хэмжээ болж, Алтайн уул ажиллагааны хөтөлбөрийн дүнг хэлэлцэж, цаашдын хамтын
+            ажиллагааг бэхжүүлэхээр шийдвэрлэсэн. Энэ уулзалтаар олон улсын судалгааны төв байгуулах
+            дэмжлэг, олон улсын байгууллагууд болон хөгжлийн түншүүдийн оролцоог нэмэгдүүлэх замаар
+            төвийн санхүүжилт, үйл ажиллагааны тогтолцоог бүрдүүлэхээр тэмүүлсэн. Уулзалтаар далайд
+            гарцгүй орнуудын худалдаа, тээвэр, дэд бүтцийн хөгжлийн талаар бүс нутгийн хамтын
+            ажиллагааны чухал чиглэлүүдийг тодорхойлж, олон улсын судалгааны төвийг байгуулах
+            техникийн болон бодлогын үндэслэлийг бэхжүүлэв.
+          </div>
+        </div>
+        <div
+          data-pencil-name="Image" class="box-border w-[360px] shrink-0  bg-gradient-to-br from-[#1E3A8A] to-[#0F2447] bg-cover bg-center bg-no-repeat rounded-[12px] h-auto min-h-[120px]"
+        ></div>
+      </div>
+      <div
+        data-pencil-name="Section Heading"
+        class="box-border w-full h-fit shrink-0 flex flex-col gap-[10px] justify-start items-start"
+      >
+        <div
+          data-pencil-name="Title"
+          class="text-[24px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+        >
+          НҮБ-ын дэмжлэг (2008–2009)
+        </div>
+        <div
+          data-pencil-name="Underline"
+          class="box-border w-[48px] h-[4px] shrink-0 bg-[#1E3A8A] rounded-[2px]"
+        ></div>
+      </div>
+      <div
+        data-pencil-name="P3"
+        class="text-[14px]/[25px] box-border w-full text-[#374151] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left"
+      >
+        2008 онд НҮБ-ын Ерөнхий Ассамблейн Улаанбаатар далайд гарцгүй орнуудын олон улсын судалгааны
+        төвийг байгуулах санааг илүү өргөн хүлээн авч, холбогдох тогтоол баталсан. 2009 оны
+        дөрөвдүгээр сард НҮБ-ын Ази, Номхон далайн эдийн засаг, нийгмийн комисс (UNESCAP) олон улсын
+        судалгааны төвийг байгуулахад дэмжлэг үзүүлэх тогтоол баталж, техникийн туслалцаа үзүүлэх,
+        холбогдох байгууллагуудтай хамтран ажиллах дэмжлэг үзүүлэв. НҮБ-ын дэмжлэг нь төвийн олон
+        улсын хүлээн зөвшөөрөл, санхүүгийн тогтвортой байдал, мэргэжлийн чадварыг бэхжүүлэхэд чухал
+        ач холбогдолтой байв.
+      </div>
+      <div
+        data-pencil-name="Chapter Албан ёсоор нээгдсэн: 2009 оны долоодугаар сар"
+        class="box-border w-full h-fit shrink-0 flex flex-row gap-[32px] justify-start items-start"
+      >
+        <div
+          data-pencil-name="Text"
+          class="box-border [flex:1_1_0] flex flex-col gap-[12px] justify-start items-start  h-auto"
+        >
+          <div
+            data-pencil-name="Section Heading"
+            class="box-border w-full h-fit shrink-0 flex flex-col gap-[10px] justify-start items-start"
+          >
+            <div
+              data-pencil-name="Title"
+              class="text-[24px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+            >
+              Албан ёсоор нээгдсэн: 2009 оны долоодугаар сар
+            </div>
+            <div
+              data-pencil-name="Underline"
+              class="box-border w-[48px] h-[4px] shrink-0 bg-[#1E3A8A] rounded-[2px]"
+            ></div>
+          </div>
+          <div
+            data-pencil-name="Paragraph"
+            class="text-[14px]/[24px] box-border w-full text-[#6B7280] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left"
+          >
+            2009 оны долоодугаар сард НҮБ-ын Ерөнхий нарийн бичгийн дарга Бан Ки Мүн болон Монгол
+            Улсын Гадаад харилцааны сайд С.Батболдын хамт Улаанбаатар хотод “Далайд гарцгүй хөгжиж
+            буй орнуудын олон улсын судалгааны төв”-ийг албан ёсоор нээгдсэн. Тэр жилийнхээ 12
+            дугаар сард НҮБ-ын Ерөнхий Ассамблейн A/RES/64/214 дугаар тогтоол баталж, төвийн дүрэм,
+            удирдлагыг баталгаажуулсан. Төв нээгдсэнээс хойш далайд гарцгүй хөгжиж буй орнуудын
+            эдийн засаг, нийгэм, хөгжлийн бодлогын асуудлаар өргөн хүрээтэй судалгаа хийж, олон
+            улсын хурал, семинар зохион байгуулж эхэлсэн.
+          </div>
+        </div>
+        <div
+          data-pencil-name="Image" class="box-border w-[360px] shrink-0  bg-gradient-to-br from-[#1E3A8A] to-[#0F2447] bg-cover bg-center bg-no-repeat rounded-[12px] h-auto min-h-[120px]"
+        ></div>
+      </div>
+      <div
+        data-pencil-name="Section Heading"
+        class="box-border w-full h-fit shrink-0 flex flex-col gap-[10px] justify-start items-start"
+      >
+        <div
+          data-pencil-name="Title"
+          class="text-[24px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+        >
+          Ач холбогдол
+        </div>
+        <div
+          data-pencil-name="Underline"
+          class="box-border w-[48px] h-[4px] shrink-0 bg-[#1E3A8A] rounded-[2px]"
+        ></div>
+      </div>
+      <div
+        data-pencil-name="P4"
+        class="text-[14px]/[25px] box-border w-full text-[#374151] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left"
+      >
+        Монгол Улсын Ерөнхийлөгчийн 2006 оны мэндчилгээндээ санаачлагыг чангартаж дэм шинжилгээ нь
+        далайд гарцгүй орнуудын нийтлэг бэрхшээлийг тодорхойлох, шийдвэрлэх арга замыг тодорхойлох,
+        бодлогын ажилд нэг мөртөөр туслах зорилгыг харуулжээ. Төв нь далайд гарцгүй хөгжиж буй
+        орнуудын бодлого боловсруулагчдад зориулсан нотолгоонд суурилсан судалгаа, шинжилгээний үр
+        дүнгээр олон улсын хамтын ажиллагааг бэхжүүлэх, тэдгээрийн хөгжлийн бэрхшээлийг бууруулахад
+        чухал үүрэг гүйцэтгэж байна. Мөн олон улсын түншүүд, хөрөнгө оруулагчид, эрдэм шинжилгээний
+        хүрээлэнтэй хамтран ажиллах гүүр болж байна.
+      </div>
+      <div
+        data-pencil-name="Section Heading"
+        class="box-border w-full h-fit shrink-0 flex flex-col gap-[10px] justify-start items-start"
+      >
+        <div
+          data-pencil-name="Title"
+          class="text-[24px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+        >
+          Түүхэн дэвшилт
+        </div>
+        <div
+          data-pencil-name="Underline"
+          class="box-border w-[48px] h-[4px] shrink-0 bg-[#1E3A8A] rounded-[2px]"
+        ></div>
+      </div>
+      <div
+        data-pencil-name="Timeline"
+        class="box-border w-full h-fit shrink-0 flex flex-row gap-[16px] justify-start items-stretch"
+      >
+        <div
+          data-pencil-name="Timeline 2003"
+          class="box-border [flex:1_1_0] flex flex-col gap-[6px] p-[16px] justify-start items-start bg-[#FFFFFF] rounded-[12px]  h-auto"
+        >
+          <div
+            data-pencil-name="Year"
+            class="text-[18px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+          >
+            2003
+          </div>
+          <div
+            data-pencil-name="Desc"
+            class="text-[13px]/[normal] box-border w-full text-[#6B7280] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left"
+          >
+            Алматы хурал, хөтөлбөр
+          </div>
+        </div>
+        <div
+          data-pencil-name="Timeline 2006"
+          class="box-border [flex:1_1_0] flex flex-col gap-[6px] p-[16px] justify-start items-start bg-[#FFFFFF] rounded-[12px]  h-auto"
+        >
+          <div
+            data-pencil-name="Year"
+            class="text-[18px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+          >
+            2006
+          </div>
+          <div
+            data-pencil-name="Desc"
+            class="text-[13px]/[normal] box-border w-full text-[#6B7280] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left"
+          >
+            Хаванагийн санаачилга
+          </div>
+        </div>
+        <div
+          data-pencil-name="Timeline 2007"
+          class="box-border [flex:1_1_0] flex flex-col gap-[6px] p-[16px] justify-start items-start bg-[#FFFFFF] rounded-[12px]  h-auto"
+        >
+          <div
+            data-pencil-name="Year"
+            class="text-[18px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+          >
+            2007
+          </div>
+          <div
+            data-pencil-name="Desc"
+            class="text-[13px]/[normal] box-border w-full text-[#6B7280] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left"
+          >
+            Улаанбаатарын арга хэмжээ
+          </div>
+        </div>
+        <div
+          data-pencil-name="Timeline 2008"
+          class="box-border [flex:1_1_0] flex flex-col gap-[6px] p-[16px] justify-start items-start bg-[#FFFFFF] rounded-[12px]  h-auto"
+        >
+          <div
+            data-pencil-name="Year"
+            class="text-[18px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+          >
+            2008
+          </div>
+          <div
+            data-pencil-name="Desc"
+            class="text-[13px]/[normal] box-border w-full text-[#6B7280] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left"
+          >
+            НҮБ-ын тогтоол
+          </div>
+        </div>
+        <div
+          data-pencil-name="Timeline 2009"
+          class="box-border [flex:1_1_0] flex flex-col gap-[6px] p-[16px] justify-start items-start bg-[#FFFFFF] rounded-[12px]  h-auto"
+        >
+          <div
+            data-pencil-name="Year"
+            class="text-[18px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+          >
+            2009
+          </div>
+          <div
+            data-pencil-name="Desc"
+            class="text-[13px]/[normal] box-border w-full text-[#6B7280] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left"
+          >
+            Төв албан ёсоор нээгдсэн
+          </div>
+        </div>
+      </div>
+    </div>

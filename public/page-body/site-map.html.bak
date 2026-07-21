@@ -1,0 +1,84 @@
+<div
+  data-pencil-name="Hero"
+  class="box-border w-full min- shrink-0 flex flex-col gap-[14px] p-[60px_160px] justify-center items-center bg-cover bg-center bg-no-repeat overflow-visible h-auto min-h-[280px]"
+  style="background-image:linear-gradient(180deg,rgba(30,58,138,0.82) 0%,rgba(15,36,71,0.88) 100%),url('/images/w5rYCp.png')"
+>
+  <div
+    data-pencil-name="Title"
+    class="text-[40px]/[normal] box-border text-[#FFFFFF] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left break-words"
+  >
+    Сайтын бүтэц
+  </div>
+  <div
+    data-pencil-name="Underline"
+    class="box-border w-[60px] h-[4px] shrink-0 bg-[#FFFFFF] rounded-[2px]"
+  ></div>
+</div>
+<div
+  data-pencil-name="Body"
+  class="box-border w-full h-fit shrink-0 flex flex-col gap-[40px] p-[100px_160px] justify-start items-start bg-[#F5F5F5]"
+>
+  <div
+    data-pencil-name="Section Heading"
+    class="box-border w-full h-fit shrink-0 flex flex-col gap-[10px] justify-start items-center"
+  >
+    <div
+      data-pencil-name="Title"
+      class="text-[28px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-center break-words"
+    >
+      Бүх хуудас
+    </div>
+    <div
+      data-pencil-name="Underline"
+      class="box-border w-[48px] h-[3px] shrink-0 bg-[#1E3A8A] rounded-[2px]"
+    ></div>
+    <div
+      data-pencil-name="Subtitle"
+      class="text-[14px]/[normal] box-border text-[#6B7280] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-center break-words"
+    >
+      Сайтын бүтэц болон бүх дэд хуудас
+    </div>
+  </div>
+  <div
+    data-pencil-name="Sitemap Grid"
+    class="box-border w-full h-fit shrink-0 flex flex-col gap-[24px] justify-start items-center"
+  >
+    <div class="box-border w-full max-w-[900px] shrink-0 flex flex-col gap-[16px] justify-start items-start bg-white rounded-[16px] p-[32px] shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
+      <a href="./about-brief-history" class="text-[17px]/[31px] box-border w-full text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left break-words hover:underline">• Бидний тухай</a>
+      <a href="./about-executive-greeting" class="text-[17px]/[31px] box-border w-full text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left break-words hover:underline pl-[20px]">• Захиралын мэндчилгээ</a>
+      <a href="./about-goals" class="text-[17px]/[31px] box-border w-full text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left break-words hover:underline pl-[20px]">• Бидний зорилго</a>
+      <a href="./about-multilateral-agreement" class="text-[17px]/[31px] box-border w-full text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left break-words hover:underline pl-[20px]">• Олон талт хэлэлцээр</a>
+    </div>
+    <div class="box-border w-full max-w-[900px] shrink-0 flex flex-col gap-[16px] justify-start items-start bg-white rounded-[16px] p-[32px] shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
+      <a href="./lldcs-vienna" class="text-[17px]/[31px] box-border w-full text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left break-words hover:underline">• LLDCs</a>
+      <a href="./lldcs-vienna" class="text-[17px]/[31px] box-border w-full text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left break-words hover:underline pl-[20px]">• LLDCs Vienna</a>
+      <a href="./lldcs-awaza" class="text-[17px]/[31px] box-border w-full text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left break-words hover:underline pl-[20px]">• LLDCs Awaza</a>
+      <a href="./priority-1" class="text-[17px]/[31px] box-border w-full text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left break-words hover:underline pl-[20px]">• Priority 1</a>
+      <a href="./priority-2" class="text-[17px]/[31px] box-border w-full text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left break-words hover:underline pl-[20px]">• Priority 2</a>
+      <a href="./priority-3" class="text-[17px]/[31px] box-border w-full text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left break-words hover:underline pl-[20px]">• Priority 3</a>
+      <a href="./priority-4" class="text-[17px]/[31px] box-border w-full text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left break-words hover:underline pl-[20px]">• Priority 4</a>
+      <a href="./priority-5" class="text-[17px]/[31px] box-border w-full text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left break-words hover:underline pl-[20px]">• Priority 5</a>
+    </div>
+    <div class="box-border w-full max-w-[900px] shrink-0 flex flex-col gap-[16px] justify-start items-start bg-white rounded-[16px] p-[32px] shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
+      <a href="./research" class="text-[17px]/[31px] box-border w-full text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left break-words hover:underline">• Судалгаа</a>
+      <a href="./reports" class="text-[17px]/[31px] box-border w-full text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left break-words hover:underline pl-[20px]">• Тайлан</a>
+      <a href="./e-library" class="text-[17px]/[31px] box-border w-full text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left break-words hover:underline pl-[20px]">• E-Library</a>
+    </div>
+    <div class="box-border w-full max-w-[900px] shrink-0 flex flex-col gap-[16px] justify-start items-start bg-white rounded-[16px] p-[32px] shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
+      <a href="./events" class="text-[17px]/[31px] box-border w-full text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left break-words hover:underline">• Арга хэмжээ</a>
+      <a href="./photos" class="text-[17px]/[31px] box-border w-full text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left break-words hover:underline pl-[20px]">• Фото</a>
+    </div>
+    <div class="box-border w-full max-w-[900px] shrink-0 flex flex-col gap-[16px] justify-start items-start bg-white rounded-[16px] p-[32px] shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
+      <a href="./support" class="text-[17px]/[31px] box-border w-full text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left break-words hover:underline">• Дэмжлэг</a>
+    </div>
+    <div class="box-border w-full max-w-[900px] shrink-0 flex flex-col gap-[16px] justify-start items-start bg-white rounded-[16px] p-[32px] shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
+      <a href="./partner-institutions" class="text-[17px]/[31px] box-border w-full text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left break-words hover:underline">• Хамтрагч байгууллагууд</a>
+    </div>
+    <div class="box-border w-full max-w-[900px] shrink-0 flex flex-col gap-[16px] justify-start items-start bg-white rounded-[16px] p-[32px] shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
+      <a href="./contact" class="text-[17px]/[31px] box-border w-full text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left break-words hover:underline">• Холбоо барих</a>
+    </div>
+    <div class="box-border w-full max-w-[900px] shrink-0 flex flex-col gap-[16px] justify-start items-start bg-white rounded-[16px] p-[32px] shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
+      <a href="./site-map" class="text-[17px]/[31px] box-border w-full text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left break-words hover:underline">• Сайтын бүтэц</a>
+    </div>
+  </div>
+</div>

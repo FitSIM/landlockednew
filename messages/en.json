@@ -1,0 +1,20 @@
+{
+  "Home": {
+    "title": "International Research Center for Landlocked Developing Countries",
+    "description": "The International Research Center is a policy research and information hub aimed at supporting sustainable development, trade, and infrastructure connectivity for landlocked developing countries."
+  },
+  "Header": {
+    "home": "Home",
+    "about": "About Us",
+    "lldcs": "LLDCs",
+    "research": "Research",
+    "events": "Events",
+    "reports": "Reports",
+    "support": "Support",
+    "elibrary": "E-Library",
+    "photos": "Photos",
+    "partners": "Partner Institutions",
+    "contact": "Contact",
+    "sitemap": "Site Map"
+  }
+}

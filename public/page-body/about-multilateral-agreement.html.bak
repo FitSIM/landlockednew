@@ -1,0 +1,661 @@
+<div data-pencil-name="Hero" class="box-border w-full  shrink-0 flex flex-col gap-[12px] p-[60px_160px] justify-center items-center bg-cover bg-center bg-no-repeat h-auto min-h-[280px]" style="background-image:linear-gradient(180deg,rgba(30,58,138,0.82) 0%,rgba(15,36,71,0.88) 100%),url('/images/IMNBD.png')"
+    >
+      <div
+        data-pencil-name="Hero Title"
+        class="text-[36px]/[normal] box-border text-[#FFFFFF] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+      >
+        Олон талт хэлэлцээр
+      </div>
+      <div
+        data-pencil-name="Hero Underline"
+        class="box-border w-[60px] h-[4px] shrink-0 bg-[#FFFFFF] rounded-[2px]"
+      ></div>
+    </div>
+<div
+      data-pencil-name="Tabs"
+      class="box-border w-full h-fit shrink-0 flex flex-row gap-[12px] p-[48px_160px] justify-center items-start bg-[#FFFFFF]"
+    >
+      <a href="./about-brief-history" data-pencil-name="Tab Товч түүх" class="box-border w-fit shrink-0 h-[48px] flex flex-row gap-0 p-[0px_24px] justify-center items-center bg-[#FFFFFF] rounded-[999px]"><div
+          data-pencil-name="Tab Label"
+          class="text-[13px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+        >
+          Товч түүх
+        </div></a>
+      <a href="./about-executive-greeting" data-pencil-name="Tab Мэндчилгээ" class="box-border w-fit shrink-0 h-[48px] flex flex-row gap-0 p-[0px_24px] justify-center items-center bg-[#FFFFFF] rounded-[999px]"><div
+          data-pencil-name="Tab Label"
+          class="text-[13px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+        >
+          Мэндчилгээ
+        </div></a>
+      <a href="./about-goals" data-pencil-name="Tab Бидний зорилго" class="box-border w-fit shrink-0 h-[48px] flex flex-row gap-0 p-[0px_24px] justify-center items-center bg-[#FFFFFF] rounded-[999px]"><div
+          data-pencil-name="Tab Label"
+          class="text-[13px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+        >
+          Бидний зорилго
+        </div></a>
+      <a href="./about-multilateral-agreement" data-pencil-name="Tab Олон талт хэлэлцээр" class="box-border w-fit shrink-0 h-[48px] flex flex-row gap-0 p-[0px_24px] justify-center items-center bg-[#1E3A8A] rounded-[999px]"><div
+          data-pencil-name="Tab Label"
+          class="text-[13px]/[normal] box-border text-[#FFFFFF] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+        >
+          Олон талт хэлэлцээр
+        </div></a>
+    </div>
+<div
+      data-pencil-name="Body"
+      class="box-border w-full h-fit shrink-0 flex flex-col gap-[72px] p-[80px_160px] justify-start items-start bg-[#F5F5F5]"
+    >
+      <div
+        data-pencil-name="Section Heading"
+        class="box-border w-full h-fit shrink-0 flex flex-col gap-[10px] justify-start items-start"
+      >
+        <div
+          data-pencil-name="Title"
+          class="text-[24px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+        >
+          Олон талт хэлэлцээр
+        </div>
+        <div
+          data-pencil-name="Underline"
+          class="box-border w-[48px] h-[4px] shrink-0 bg-[#1E3A8A] rounded-[2px]"
+        ></div>
+      </div>
+      <div
+        data-pencil-name="Intro Row"
+        class="box-border w-full h-fit shrink-0 flex flex-row gap-[40px] justify-start items-center"
+      >
+        <div
+          data-pencil-name="Intro Text"
+          class="text-[14px]/[25px] box-border [flex:1_1_0] text-[#374151] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left  h-auto"
+        >
+          “Далайд гарцгүй хөгжиж буй орнуудын олон улсын судалгааны төвийг байгуулах тухай олон талт
+          хэлэлцээр” нь далайд гарцгүй хөгжиж буй орнуудын дүн шинжилгээний чадварыг сайжруулах,
+          тэдгээрийн хамтын ажиллагааг бэхжүүлэх, олон улсын хамтын ажиллагааны арх зүйн үндэслэлийг
+          тогтоосон чухал баримт бичиг юм. Энэ хэлэлцээр нь Монгол Улсад төвхөнсөн олон улсын
+          судалгааны төвийг олон улсын хүлээн зөвшөөрөл, байгууллагын зэр зүйн баталгаажуулалт,
+          гишүүн орнуудын хооронд мэдэл, судалгаа, мэдлэг хуваалцах үндэс журмуудыг бий болгоно.
+        </div>
+        <div
+          data-pencil-name="Intro Image Card"
+          class="box-border w-[320px] shrink-0  flex flex-col gap-[8px] justify-center items-center bg-gradient-to-br from-[#1E3A8A] to-[#0F2447] bg-cover bg-center bg-no-repeat rounded-[16px] h-auto min-h-[220px]"
+        >
+          <div
+            data-pencil-name="Big Number"
+            class="text-[64px]/[normal] box-border text-[#FFFFFF] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+          >
+            15
+          </div>
+          <div
+            data-pencil-name="Label"
+            class="text-[14px]/[normal] box-border text-[#DBEAFE] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+          >
+            соёрхон баталсан улс
+          </div>
+        </div>
+      </div>
+      <div
+        data-pencil-name="Stats Bar"
+        class="box-border w-full h-fit shrink-0 flex flex-row gap-[24px] justify-start items-stretch"
+      >
+        <div
+          data-pencil-name="Stat 7"
+          class="box-border w-[358px] shrink-0  flex flex-col gap-[12px] p-[28px] justify-start items-start bg-[#FFFFFF] [border:1px_solid_#1E3A8A] rounded-[16px] h-auto min-h-[246px]"
+        >
+          <div
+            data-pencil-name="Number"
+            class="text-[42px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+          >
+            7
+          </div>
+          <div
+            data-pencil-name="Title"
+            class="text-[15px]/[normal] box-border text-[#111827] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+          >
+            Гарын үсэг зурсан
+          </div>
+          <div
+            data-pencil-name="Desc" class="text-[13px]/[20px] box-border w-full text-[#6B7280] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left line-clamp-3"
+          >
+            Армени, Афганистан, Этиоп, Лаосын АР, Монгол, Непал, Парагвай
+          </div>
+        </div>
+        <div
+          data-pencil-name="Stat 15"
+          class="box-border [flex:1_1_0] flex flex-col gap-[12px] p-[28px] justify-start items-start bg-[#FFFFFF] [border:1px_solid_#1E3A8A] rounded-[16px] h-auto min-h-[246px]"
+        >
+          <div
+            data-pencil-name="Number"
+            class="text-[42px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+          >
+            15
+          </div>
+          <div
+            data-pencil-name="Title"
+            class="text-[15px]/[normal] box-border text-[#111827] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+          >
+            Соёрхон баталсан
+          </div>
+          <div
+            data-pencil-name="Desc" class="text-[13px]/[20px] box-border w-full text-[#6B7280] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left line-clamp-3"
+          >
+            Афганистан, Армени, Азербайжан, Боливи, Бурунди, Бутан, Казахстан, Киргизстан, Лаос,
+            Монгол, Непал, Парагвай, Руанда, Тажикистан, Туркменистан
+          </div>
+        </div>
+        <div
+          data-pencil-name="Stat 2017"
+          class="box-border w-[357px] shrink-0  flex flex-col gap-[12px] p-[28px] justify-start items-start bg-[#FFFFFF] [border:1px_solid_#1E3A8A] rounded-[16px] h-auto min-h-[246px]"
+        >
+          <div
+            data-pencil-name="Number"
+            class="text-[42px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+          >
+            2017
+          </div>
+          <div
+            data-pencil-name="Title"
+            class="text-[15px]/[normal] box-border text-[#111827] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+          >
+            Хүчин төгөлдөр болсон
+          </div>
+          <div
+            data-pencil-name="Desc" class="text-[13px]/[20px] box-border w-full text-[#6B7280] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left line-clamp-3"
+          >
+            10 дахь соёрхон баталгааг хүлээн авснаар 2017 оны 10 сарын 6
+          </div>
+        </div>
+      </div>
+      <div
+        data-pencil-name="Section Heading"
+        class="box-border w-full h-fit shrink-0 flex flex-col gap-[10px] justify-start items-start"
+      >
+        <div
+          data-pencil-name="Title"
+          class="text-[24px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+        >
+          Хэлэлцээр хүчин төгөлдөр болох үе шатууд
+        </div>
+        <div
+          data-pencil-name="Underline"
+          class="box-border w-[48px] h-[4px] shrink-0 bg-[#1E3A8A] rounded-[2px]"
+        ></div>
+      </div>
+      <div
+        data-pencil-name="Steps Grid"
+        class="box-border w-full h-fit shrink-0 flex flex-row gap-[24px] justify-start items-stretch"
+      >
+        <div
+          data-pencil-name="Step 1"
+          class="box-border [flex:1_1_0] min-h-[180px] flex flex-col gap-[14px] p-[24px] justify-start items-start bg-[#FFFFFF] [border:1px_solid_#1E3A8A] rounded-[16px]"
+        >
+          <div
+            data-pencil-name="Badge"
+            class="box-border w-[32px] h-[32px] shrink-0 flex flex-col gap-0 justify-center items-center bg-[#1E3A8A] rounded-[999px]"
+          >
+            <div
+              data-pencil-name="Num"
+              class="text-[13px]/[normal] box-border text-[#FFFFFF] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+            >
+              1
+            </div>
+          </div>
+          <div
+            data-pencil-name="Title"
+            class="text-[17px]/[normal] box-border text-[#111827] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+          >
+            Гарын үсэг зурах
+          </div>
+          <div
+            data-pencil-name="Desc"
+            class="text-[14px]/[23px] box-border w-full text-[#6B7280] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left"
+          >
+            Гишүүн орнууд хэлэлцээрт гарын үсэг зурж, батламжийг хадгалуулна.
+          </div>
+        </div>
+        <div
+          data-pencil-name="Step 2"
+          class="box-border [flex:1_1_0] min-h-[180px] flex flex-col gap-[14px] p-[24px] justify-start items-start bg-[#FFFFFF] [border:1px_solid_#1E3A8A] rounded-[16px]"
+        >
+          <div
+            data-pencil-name="Badge"
+            class="box-border w-[32px] h-[32px] shrink-0 flex flex-col gap-0 justify-center items-center bg-[#1E3A8A] rounded-[999px]"
+          >
+            <div
+              data-pencil-name="Num"
+              class="text-[13px]/[normal] box-border text-[#FFFFFF] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+            >
+              2
+            </div>
+          </div>
+          <div
+            data-pencil-name="Title"
+            class="text-[17px]/[normal] box-border text-[#111827] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+          >
+            Соёрхон батлах
+          </div>
+          <div
+            data-pencil-name="Desc"
+            class="text-[14px]/[23px] box-border w-full text-[#6B7280] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left"
+          >
+            Улс орнууд дотоод журмуудынхаа дагуу хэлэлцээрийг соёрхон батална.
+          </div>
+        </div>
+        <div
+          data-pencil-name="Step 3"
+          class="box-border [flex:1_1_0] min-h-[180px] flex flex-col gap-[14px] p-[24px] justify-start items-start bg-[#FFFFFF] [border:1px_solid_#1E3A8A] rounded-[16px]"
+        >
+          <div
+            data-pencil-name="Badge"
+            class="box-border w-[32px] h-[32px] shrink-0 flex flex-col gap-0 justify-center items-center bg-[#1E3A8A] rounded-[999px]"
+          >
+            <div
+              data-pencil-name="Num"
+              class="text-[13px]/[normal] box-border text-[#FFFFFF] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+            >
+              3
+            </div>
+          </div>
+          <div
+            data-pencil-name="Title"
+            class="text-[17px]/[normal] box-border text-[#111827] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+          >
+            Бичиг хадгалуулах
+          </div>
+          <div
+            data-pencil-name="Desc"
+            class="text-[14px]/[23px] box-border w-full text-[#6B7280] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left"
+          >
+            Соёрхон баталсан бичгийг НҮБ-ын Ерөнхий нарийн бичгийн хэрэгт хадгалуулна.
+          </div>
+        </div>
+        <div
+          data-pencil-name="Step 4"
+          class="box-border [flex:1_1_0] min-h-[180px] flex flex-col gap-[14px] p-[24px] justify-start items-start bg-[#FFFFFF] [border:1px_solid_#1E3A8A] rounded-[16px]"
+        >
+          <div
+            data-pencil-name="Badge"
+            class="box-border w-[32px] h-[32px] shrink-0 flex flex-col gap-0 justify-center items-center bg-[#1E3A8A] rounded-[999px]"
+          >
+            <div
+              data-pencil-name="Num"
+              class="text-[13px]/[normal] box-border text-[#FFFFFF] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+            >
+              4
+            </div>
+          </div>
+          <div
+            data-pencil-name="Title"
+            class="text-[17px]/[normal] box-border text-[#111827] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+          >
+            Хүчин төгөлдөр болох
+          </div>
+          <div
+            data-pencil-name="Desc"
+            class="text-[14px]/[23px] box-border w-full text-[#6B7280] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left"
+          >
+            10 дахь соёрхон баталгааг хүлээн авснаар хууль ёсны хүчин төгөлдөр болно.
+          </div>
+        </div>
+      </div>
+      <div
+        data-pencil-name="Section Heading"
+        class="box-border w-full h-fit shrink-0 flex flex-col gap-[10px] justify-start items-start"
+      >
+        <div
+          data-pencil-name="Title"
+          class="text-[24px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+        >
+          Гишүүн орнуудын статус
+        </div>
+        <div
+          data-pencil-name="Underline"
+          class="box-border w-[48px] h-[4px] shrink-0 bg-[#1E3A8A] rounded-[2px]"
+        ></div>
+      </div>
+      <div
+        data-pencil-name="Status Table"
+        class="box-border w-full h-fit shrink-0 [box-shadow:0px_4px_16px_0px_#1E3A8A0A] flex flex-col gap-0 justify-start items-start bg-[#FFFFFF] [border:1px_solid_#E5E7EB] rounded-[16px]"
+      >
+        <div
+          data-pencil-name="Table Header"
+          class="box-border w-full h-fit shrink-0 flex flex-row gap-0 p-[16px_24px] justify-between items-start bg-[#1E3A8A] rounded-[12px_12px_0px_0px]"
+        >
+          <div
+            data-pencil-name="Header Country"
+            class="text-[14px]/[normal] box-border text-[#FFFFFF] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+          >
+            Улс
+          </div>
+          <div
+            data-pencil-name="Header Status"
+            class="text-[14px]/[normal] box-border text-[#FFFFFF] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+          >
+            Статус
+          </div>
+        </div>
+        <div
+          data-pencil-name="Row Монгол"
+          class="box-border w-full h-fit shrink-0 flex flex-row gap-0 p-[16px_24px] justify-between items-start bg-[#FFFFFF] [border-width:0px_0px_1px_0px] [border-style:solid] [border-color:#E5E7EB]"
+        >
+          <div
+            data-pencil-name="Country"
+            class="text-[14px]/[normal] box-border text-[#111827] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left [white-space:nowrap]"
+          >
+            Монгол
+          </div>
+          <div
+            data-pencil-name="Status"
+            class="text-[13px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+          >
+            Соёрхон баталсан
+          </div>
+        </div>
+        <div
+          data-pencil-name="Row Армени"
+          class="box-border w-full h-fit shrink-0 flex flex-row gap-0 p-[16px_24px] justify-between items-start bg-[#F8FAFC] [border-width:1px_0px_1px_0px] [border-style:solid] [border-color:#E5E7EB]"
+        >
+          <div
+            data-pencil-name="Country"
+            class="text-[14px]/[normal] box-border text-[#111827] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left [white-space:nowrap]"
+          >
+            Армени
+          </div>
+          <div
+            data-pencil-name="Status"
+            class="text-[13px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+          >
+            Соёрхон баталсан
+          </div>
+        </div>
+        <div
+          data-pencil-name="Row Афганистан"
+          class="box-border w-full h-fit shrink-0 flex flex-row gap-0 p-[16px_24px] justify-between items-start bg-[#FFFFFF] [border-width:1px_0px_1px_0px] [border-style:solid] [border-color:#E5E7EB]"
+        >
+          <div
+            data-pencil-name="Country"
+            class="text-[14px]/[normal] box-border text-[#111827] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left [white-space:nowrap]"
+          >
+            Афганистан
+          </div>
+          <div
+            data-pencil-name="Status"
+            class="text-[13px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+          >
+            Соёрхон баталсан
+          </div>
+        </div>
+        <div
+          data-pencil-name="Row Казахстан"
+          class="box-border w-full h-fit shrink-0 flex flex-row gap-0 p-[16px_24px] justify-between items-start bg-[#F8FAFC] [border-width:1px_0px_1px_0px] [border-style:solid] [border-color:#E5E7EB]"
+        >
+          <div
+            data-pencil-name="Country"
+            class="text-[14px]/[normal] box-border text-[#111827] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left [white-space:nowrap]"
+          >
+            Казахстан
+          </div>
+          <div
+            data-pencil-name="Status"
+            class="text-[13px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+          >
+            Соёрхон баталсан
+          </div>
+        </div>
+        <div
+          data-pencil-name="Row Парагвай"
+          class="box-border w-full h-fit shrink-0 flex flex-row gap-0 p-[16px_24px] justify-between items-start bg-[#FFFFFF] [border-width:1px_0px_1px_0px] [border-style:solid] [border-color:#E5E7EB]"
+        >
+          <div
+            data-pencil-name="Country"
+            class="text-[14px]/[normal] box-border text-[#111827] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left [white-space:nowrap]"
+          >
+            Парагвай
+          </div>
+          <div
+            data-pencil-name="Status"
+            class="text-[13px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+          >
+            Соёрхон баталсан
+          </div>
+        </div>
+        <div
+          data-pencil-name="Row Буркина Фасо"
+          class="box-border w-full h-fit shrink-0 flex flex-row gap-0 p-[16px_24px] justify-between items-start bg-[#F8FAFC] [border-width:1px_0px_1px_0px] [border-style:solid] [border-color:#E5E7EB]"
+        >
+          <div
+            data-pencil-name="Country"
+            class="text-[14px]/[normal] box-border text-[#111827] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left [white-space:nowrap]"
+          >
+            Буркина Фасо
+          </div>
+          <div
+            data-pencil-name="Status"
+            class="text-[13px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+          >
+            Соёрхон баталсан
+          </div>
+        </div>
+        <div
+          data-pencil-name="Row Киргизстан"
+          class="box-border w-full h-fit shrink-0 flex flex-row gap-0 p-[16px_24px] justify-between items-start bg-[#FFFFFF] [border-width:1px_0px_1px_0px] [border-style:solid] [border-color:#E5E7EB]"
+        >
+          <div
+            data-pencil-name="Country"
+            class="text-[14px]/[normal] box-border text-[#111827] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left [white-space:nowrap]"
+          >
+            Киргизстан
+          </div>
+          <div
+            data-pencil-name="Status"
+            class="text-[13px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+          >
+            Соёрхон баталсан
+          </div>
+        </div>
+        <div
+          data-pencil-name="Row Тажикистан"
+          class="box-border w-full h-fit shrink-0 flex flex-row gap-0 p-[16px_24px] justify-between items-start bg-[#F8FAFC] [border-width:1px_0px_1px_0px] [border-style:solid] [border-color:#E5E7EB]"
+        >
+          <div
+            data-pencil-name="Country"
+            class="text-[14px]/[normal] box-border text-[#111827] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left [white-space:nowrap]"
+          >
+            Тажикистан
+          </div>
+          <div
+            data-pencil-name="Status"
+            class="text-[13px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+          >
+            Соёрхон баталсан
+          </div>
+        </div>
+        <div
+          data-pencil-name="Row Непал"
+          class="box-border w-full h-fit shrink-0 flex flex-row gap-0 p-[16px_24px] justify-between items-start bg-[#FFFFFF] [border-width:1px_0px_1px_0px] [border-style:solid] [border-color:#E5E7EB]"
+        >
+          <div
+            data-pencil-name="Country"
+            class="text-[14px]/[normal] box-border text-[#111827] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left [white-space:nowrap]"
+          >
+            Непал
+          </div>
+          <div
+            data-pencil-name="Status"
+            class="text-[13px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+          >
+            Соёрхон баталсан
+          </div>
+        </div>
+        <div
+          data-pencil-name="Row Этиоп"
+          class="box-border w-full h-fit shrink-0 flex flex-row gap-0 p-[16px_24px] justify-between items-start bg-[#F8FAFC] [border-width:1px_0px_1px_0px] [border-style:solid] [border-color:#E5E7EB]"
+        >
+          <div
+            data-pencil-name="Country"
+            class="text-[14px]/[normal] box-border text-[#111827] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left [white-space:nowrap]"
+          >
+            Этиоп
+          </div>
+          <div
+            data-pencil-name="Status"
+            class="text-[13px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+          >
+            Соёрхон баталсан
+          </div>
+        </div>
+        <div
+          data-pencil-name="Row Бутан"
+          class="box-border w-full h-fit shrink-0 flex flex-row gap-0 p-[16px_24px] justify-between items-start bg-[#FFFFFF] [border-width:1px_0px_1px_0px] [border-style:solid] [border-color:#E5E7EB]"
+        >
+          <div
+            data-pencil-name="Country"
+            class="text-[14px]/[normal] box-border text-[#111827] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left [white-space:nowrap]"
+          >
+            Бутан
+          </div>
+          <div
+            data-pencil-name="Status"
+            class="text-[13px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+          >
+            Соёрхон баталсан
+          </div>
+        </div>
+        <div
+          data-pencil-name="Row Нигер"
+          class="box-border w-full h-fit shrink-0 flex flex-row gap-0 p-[16px_24px] justify-between items-start bg-[#F8FAFC] [border-width:1px_0px_1px_0px] [border-style:solid] [border-color:#E5E7EB]"
+        >
+          <div
+            data-pencil-name="Country"
+            class="text-[14px]/[normal] box-border text-[#111827] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left [white-space:nowrap]"
+          >
+            Нигер
+          </div>
+          <div
+            data-pencil-name="Status"
+            class="text-[13px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+          >
+            Соёрхон баталсан
+          </div>
+        </div>
+        <div
+          data-pencil-name="Row Азербайжан"
+          class="box-border w-full h-fit shrink-0 flex flex-row gap-0 p-[16px_24px] justify-between items-start bg-[#FFFFFF] [border-width:1px_0px_1px_0px] [border-style:solid] [border-color:#E5E7EB]"
+        >
+          <div
+            data-pencil-name="Country"
+            class="text-[14px]/[normal] box-border text-[#111827] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left [white-space:nowrap]"
+          >
+            Азербайжан
+          </div>
+          <div
+            data-pencil-name="Status"
+            class="text-[13px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+          >
+            Соёрхон баталсан
+          </div>
+        </div>
+        <div
+          data-pencil-name="Row Туркменистан"
+          class="box-border w-full h-fit shrink-0 flex flex-row gap-0 p-[16px_24px] justify-between items-start bg-[#F8FAFC] [border-width:1px_0px_1px_0px] [border-style:solid] [border-color:#E5E7EB]"
+        >
+          <div
+            data-pencil-name="Country"
+            class="text-[14px]/[normal] box-border text-[#111827] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left [white-space:nowrap]"
+          >
+            Туркменистан
+          </div>
+          <div
+            data-pencil-name="Status"
+            class="text-[13px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+          >
+            Соёрхон баталсан
+          </div>
+        </div>
+        <div
+          data-pencil-name="Row Лаосын АР"
+          class="box-border w-full h-fit shrink-0 flex flex-row gap-0 p-[16px_24px] justify-between items-start bg-[#FFFFFF] [border-width:1px_0px_1px_0px] [border-style:solid] [border-color:#E5E7EB] rounded-[0px_0px_12px_12px]"
+        >
+          <div
+            data-pencil-name="Country"
+            class="text-[14px]/[normal] box-border text-[#111827] font-['Space_Grotesk',system-ui,sans-serif] font-medium text-left [white-space:nowrap]"
+          >
+            Лаосын АР
+          </div>
+          <div
+            data-pencil-name="Status"
+            class="text-[13px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+          >
+            Соёрхон баталсан
+          </div>
+        </div>
+      </div>
+      <div
+        data-pencil-name="Section Heading"
+        class="box-border w-full h-fit shrink-0 flex flex-col gap-[10px] justify-start items-start"
+      >
+        <div
+          data-pencil-name="Title"
+          class="text-[24px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+        >
+          Дэмжлэг, нэгдэх үйл явц
+        </div>
+        <div
+          data-pencil-name="Underline"
+          class="box-border w-[48px] h-[4px] shrink-0 bg-[#1E3A8A] rounded-[2px]"
+        ></div>
+      </div>
+      <div
+        data-pencil-name="Support Grid"
+        class="box-border w-full h-fit shrink-0 flex flex-row gap-[24px] justify-start items-stretch"
+      >
+        <div
+          data-pencil-name="Support Нэгдэх боломж"
+          class="box-border [flex:1_1_0]  flex flex-col gap-[18px] p-[32px] justify-start items-start bg-[#FFFFFF] [border-width:4px_1px_1px_1px] [border-style:solid] [border-color:#1E3A8A] rounded-[16px] h-auto min-h-[260px]"
+        >
+          <div
+            data-pencil-name="Icon"
+            class="text-[32px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+          >
+            +
+          </div>
+          <div
+            data-pencil-name="Title"
+            class="text-[18px]/[normal] box-border text-[#111827] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+          >
+            Нэгдэх боломж
+          </div>
+          <div
+            data-pencil-name="Desc"
+            class="text-[14px]/[24px] box-border w-full text-[#6B7280] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left"
+          >
+            Гарын үсэг зураагүй улсууд НҮБ-ын далайд гарцгүй хөгжиж буй орнуудын алба болон НҮБ-ын
+            Хууль ёсны газраас тусламж аван нэгдэх, соёрхон батлах үйл явцыг дуусгах боломжтой. Энэ
+            нь олон улсын хамтын ажиллагааны эрх зүйн үндэс болно.
+          </div>
+        </div>
+        <div
+          data-pencil-name="Support Зохион байгуулах дэмжлэг"
+          class="box-border [flex:1_1_0]  flex flex-col gap-[18px] p-[32px] justify-start items-start bg-[#FFFFFF] [border-width:4px_1px_1px_1px] [border-style:solid] [border-color:#1E3A8A] rounded-[16px] h-auto min-h-[260px]"
+        >
+          <div
+            data-pencil-name="Icon"
+            class="text-[32px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+          >
+            🏛
+          </div>
+          <div
+            data-pencil-name="Title"
+            class="text-[18px]/[normal] box-border text-[#111827] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+          >
+            Зохион байгуулах дэмжлэг
+          </div>
+          <div
+            data-pencil-name="Desc"
+            class="text-[14px]/[24px] box-border w-full text-[#6B7280] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left"
+          >
+            Монгол Улс төвийн байрлах байгууллагын тухай олон талт хэлэлцээрт соёрхон батлах, нэгдэх
+            үйл явцыг зохион байгуулахад дэмжлэг үзүүлэх, холбогдох баримт бичгийг бэлтгэх,
+            мэргэжилтнүүдийг зөвлөгөө өгөх.
+          </div>
+        </div>
+      </div>
+    </div>
