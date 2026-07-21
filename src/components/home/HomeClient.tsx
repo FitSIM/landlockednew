@@ -1,25 +1,21 @@
 "use client";
 
 import HomeHero from "@/components/home/HomeHero";
+import HomeHistorySection from "@/components/home/HomeHistorySection";
+import HomeFocusSection from "@/components/home/HomeFocusSection";
 import HomeNewsSection from "@/components/home/HomeNewsSection";
+import HomeQuoteSection from "@/components/home/HomeQuoteSection";
 import HomeYouthSection from "@/components/home/HomeYouthSection";
+import HomeNewsletterSection from "@/components/home/HomeNewsletterSection";
 import PageAnimator from "@/components/page/PageAnimator";
 import Loader from "@/components/common/Loader";
 import { usePageContent, useSlotPosts } from "@/lib/hooks/useCms";
 import { CMS_CATEGORIES } from "@/lib/cms-slots";
 
-function SectionBlob({ html }: { html: string }) {
-  return (
-    <div
-      className="pencil-page w-full"
-      dangerouslySetInnerHTML={{ __html: html }}
-    />
-  );
-}
-
 export default function HomeClient() {
-  // Homepage = composition of CMS section slots. The monolithic "home" page
-  // content / static snapshot remains the fallback when the slot is empty.
+  // Homepage = composition of CMS section slots. Every section reads its own
+  // category; the monolithic "home" page content / static snapshot remains
+  // the fallback only when the slot mechanism has no posts at all.
   const { posts: sections, loading: sectionsLoading } = useSlotPosts(
     CMS_CATEGORIES.sectionHome,
   );
@@ -52,19 +48,25 @@ export default function HomeClient() {
     );
   }
 
-  // Section posts are identified by their title (seeded as "Нүүр — <name>").
-  const byTitle = (needle: string) =>
-    sections.find((p) => p.title?.includes(needle))?.content;
+  const newsHeading = sections.find((p) =>
+    p.title?.includes("Мэдээний толгой"),
+  )?.content;
+  const youthHeading = sections.find((p) =>
+    p.title?.includes("Залуучуудын толгой"),
+  )?.content;
 
   return (
     <>
       <PageAnimator />
       <HomeHero />
-      {byTitle("History Section") ? <SectionBlob html={byTitle("History Section")!} /> : null}
-      <HomeNewsSection headingHtml={byTitle("Мэдээний толгой")} />
-      {byTitle("Quote") ? <SectionBlob html={byTitle("Quote")!} /> : null}
-      <HomeYouthSection headingHtml={byTitle("Залуучуудын толгой")} />
-      {byTitle("Newsletter") ? <SectionBlob html={byTitle("Newsletter")!} /> : null}
+      <div className="bg-[#F5F5F5]">
+        <HomeHistorySection />
+        <HomeFocusSection />
+      </div>
+      <HomeNewsSection headingHtml={newsHeading} />
+      <HomeQuoteSection />
+      <HomeYouthSection headingHtml={youthHeading} />
+      <HomeNewsletterSection />
     </>
   );
 }
