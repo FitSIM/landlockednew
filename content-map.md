@@ -86,6 +86,24 @@ Button labels (Дэлгэрэнгүй, Бүртгүүлэх, Хуваалцах)
 **New pages:** `news`, `support`; fill `youth-advisory` or leave empty
 **Frontend after seeding:** homepage recomposed into live sections; ResearchPage, ReportsPage, PhotosPage, ContactPage, youth events wired to the slots above; fallback architecture preserved everywhere (live first, static snapshot only on error/empty).
 
+## IMPLEMENTED (2026-07-21) — final structure
+
+**Model:** everything is a post; a category is a slot; pages are compositions of slots. Section posts hold raw HTML fragments ordered by creation time (explicit `order` custom field where present). The frontend concatenates a page's section posts in order so the rendered DOM is identical to the old monolith.
+
+**Slot categories (top-level):** `hero`, `focus-areas`, `quote`, `newsletter`, `events` (Арга хэмжээ), `youth-events`, `research-categories`, `documents`, `reports`, `gallery`, `contact-info`, plus existing `news` (Мэдээ), `Blog` (legacy 15 posts), `Бидний түүх`.
+**Page Sections** (parent category "Хуудасны хэсгүүд"): `section-home` + 14 per-page categories — 143 section posts across 13 pages + support.
+**Custom field groups:** `sectionMeta` (order), `eventMeta` (date/location/tag/fullInfo/outcomes/speakers/schedule), `documentMeta` (fileUrl/fileSize/fileType/date/group/year), `contactMeta` (address/phone/email/social/social urls/orgDescription).
+**Custom fields format:** `customFieldsData` must be an array of `{ field, value }` pairs — plain objects are silently stripped by the API.
+**Pages created:** `news`, `support`.
+**Live site:** https://landlockednew.vercel.app (repo FitSIM/landlockednew, git-push deploys).
+
+## Known leftovers (manual admin cleanup)
+
+- Duplicate v1 posts (empty custom fields) in: youth-events (6), research-categories (2), documents (16), reports (3), gallery (9), contact-info (1) — the frontend ignores them; delete in admin.
+- "FORMAT TEST — delete me" draft post in section-home.
+- Old hero post in category `test` and the `test`/`Blog` categories themselves (posts still in Blog are LIVE — do not delete Blog).
+- Vercel project + GitHub repo `landlockednew-main` (first deploy attempt) can be deleted.
+
 ## Open questions for review
 
 1. Reports: seed one post per year (2009–2025) even where there's no real document yet, or only years that have actual reports?
