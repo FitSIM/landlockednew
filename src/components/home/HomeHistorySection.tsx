@@ -14,10 +14,11 @@ export default function HomeHistorySection() {
   const [first, ...rest] = posts;
 
   return (
-    <div
-      data-pencil-name="History Section"
-      className="pencil-page box-border w-full h-fit shrink-0 flex flex-col gap-[28px] p-[100px_160px] justify-start items-center bg-[#F5F5F5]"
-    >
+    <div className="pencil-page">
+      <div
+        data-pencil-name="History Section"
+        className="box-border w-full h-fit shrink-0 flex flex-col gap-[28px] p-[100px_160px] justify-start items-center bg-[#F5F5F5]"
+      >
       <div
         data-pencil-name="History Title"
         className="text-[36px]/[normal] box-border text-[#111827] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
@@ -49,6 +50,7 @@ export default function HomeHistorySection() {
           </div>
         </div>
       </Link>
+    </div>
     </div>
   );
 }

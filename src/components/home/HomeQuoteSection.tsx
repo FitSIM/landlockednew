@@ -13,10 +13,11 @@ export default function HomeQuoteSection() {
   const post = posts[0];
 
   return (
-    <div
-      data-pencil-name="Quote"
-      className="pencil-page box-border w-full h-fit shrink-0 flex flex-col gap-[16px] p-[80px_200px] justify-start items-center bg-[#1E3A8A]"
-    >
+    <div className="pencil-page">
+      <div
+        data-pencil-name="Quote"
+        className="box-border w-full h-fit shrink-0 flex flex-col gap-[16px] p-[80px_200px] justify-start items-center bg-[#1E3A8A]"
+      >
       <div
         data-pencil-name="Quote Mark"
         className="text-[120px]/[normal] box-border opacity-[0.12] text-[#FFFFFF] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
@@ -34,6 +35,7 @@ export default function HomeQuoteSection() {
       >
         {fieldsOf(post).attribution}
       </div>
+    </div>
     </div>
   );
 }

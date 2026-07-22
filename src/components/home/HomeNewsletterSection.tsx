@@ -14,10 +14,11 @@ export default function HomeNewsletterSection() {
   const post = posts[0];
 
   return (
-    <div
-      data-pencil-name="Newsletter"
-      className="pencil-page box-border w-full h-fit shrink-0 flex flex-col gap-[24px] p-[80px_160px] justify-start items-center bg-[#1E3A8A]"
-    >
+    <div className="pencil-page">
+      <div
+        data-pencil-name="Newsletter"
+        className="box-border w-full h-fit shrink-0 flex flex-col gap-[24px] p-[80px_160px] justify-start items-center bg-[#1E3A8A]"
+      >
       <div
         data-pencil-name="Newsletter Card"
         className="box-border w-[720px] h-fit shrink-0 flex flex-col gap-[24px] p-[48px] justify-start items-center bg-[#FFFFFF15] rounded-[20px]"
@@ -63,6 +64,7 @@ export default function HomeNewsletterSection() {
           {fieldsOf(post).benefits}
         </div>
       </div>
+    </div>
     </div>
   );
 }

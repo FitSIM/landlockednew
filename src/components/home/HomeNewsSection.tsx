@@ -69,10 +69,11 @@ export default function HomeNewsSection({ headingHtml }: { headingHtml?: string 
   const small = rest.slice(0, 4);
 
   return (
-    <div
-      data-pencil-name="News Section"
-      className="pencil-page box-border w-full h-fit shrink-0 flex flex-col gap-[32px] p-[80px_160px] justify-start items-center bg-[#FFFFFF]"
-    >
+    <div className="pencil-page">
+      <div
+        data-pencil-name="News Section"
+        className="box-border w-full h-fit shrink-0 flex flex-col gap-[32px] p-[80px_160px] justify-start items-center bg-[#FFFFFF]"
+      >
       {headingHtml ? (
         <div className="contents" dangerouslySetInnerHTML={{ __html: headingHtml }} />
       ) : null}
@@ -131,6 +132,7 @@ export default function HomeNewsSection({ headingHtml }: { headingHtml?: string 
           <SmallCard key={post._id} post={post} />
         ))}
       </div>
+    </div>
     </div>
   );
 }

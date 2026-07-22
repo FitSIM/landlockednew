@@ -45,13 +45,15 @@ export default function HomeFocusSection() {
   if (loading || posts.length === 0) return null;
 
   return (
-    <div
-      data-pencil-name="Feature Cards"
-      className="pencil-page box-border w-full h-fit shrink-0 flex flex-row gap-[20px] p-[16px_0px_0px_0px] justify-start items-stretch bg-[#F5F5F5]"
-    >
-      {posts.map((post, i) => (
-        <FeatureCard key={post._id} post={post} index={i} />
-      ))}
+    <div className="pencil-page">
+      <div
+        data-pencil-name="Feature Cards"
+        className="box-border w-full h-fit shrink-0 flex flex-row gap-[20px] p-[16px_0px_0px_0px] justify-start items-stretch bg-[#F5F5F5]"
+      >
+        {posts.map((post, i) => (
+          <FeatureCard key={post._id} post={post} index={i} />
+        ))}
+      </div>
     </div>
   );
 }

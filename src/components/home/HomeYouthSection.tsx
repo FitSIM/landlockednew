@@ -95,10 +95,11 @@ export default function HomeYouthSection({ headingHtml }: { headingHtml?: string
   for (let i = 0; i < posts.length; i += 4) rows.push(posts.slice(i, i + 4));
 
   return (
-    <div
-      data-pencil-name="Youth Section"
-      className="pencil-page box-border w-full h-fit shrink-0 flex flex-col gap-[40px] p-[80px_160px] justify-start items-start bg-[#F5F5F5]"
-    >
+    <div className="pencil-page">
+      <div
+        data-pencil-name="Youth Section"
+        className="box-border w-full h-fit shrink-0 flex flex-col gap-[40px] p-[80px_160px] justify-start items-start bg-[#F5F5F5]"
+      >
       {headingHtml ? (
         <div className="contents" dangerouslySetInnerHTML={{ __html: headingHtml }} />
       ) : null}
@@ -113,6 +114,7 @@ export default function HomeYouthSection({ headingHtml }: { headingHtml?: string
           ))}
         </div>
       ))}
+    </div>
     </div>
   );
 }
