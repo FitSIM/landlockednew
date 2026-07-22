@@ -2,7 +2,6 @@
 
 import HomeHero from "@/components/home/HomeHero";
 import HomeHistorySection from "@/components/home/HomeHistorySection";
-import HomeFocusSection from "@/components/home/HomeFocusSection";
 import HomeNewsSection from "@/components/home/HomeNewsSection";
 import HomeQuoteSection from "@/components/home/HomeQuoteSection";
 import HomeYouthSection from "@/components/home/HomeYouthSection";
@@ -59,10 +58,7 @@ export default function HomeClient() {
     <>
       <PageAnimator />
       <HomeHero />
-      <div className="bg-[#F5F5F5]">
-        <HomeHistorySection />
-        <HomeFocusSection />
-      </div>
+      <HomeHistorySection />
       <HomeNewsSection headingHtml={newsHeading} />
       <HomeQuoteSection />
       <HomeYouthSection headingHtml={youthHeading} />
