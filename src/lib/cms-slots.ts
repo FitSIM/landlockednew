@@ -13,9 +13,9 @@ export const CMS_CATEGORIES = {
   gallery: "YQpvuWC7F86QnOx61SaGz", // photos
   eLibrary: "ma7c-AJsMbDEodgLIM9qD", // e-library sections
   partners: "t85PQgeGpGhACNZumd15A", // Хамтрагч байгууллагууд — partner sections
-  news: "REPLACE_NEWS_ID", // Мэдээ — news posts
-  support: "REPLACE_SUPPORT_ID", // Дэмжлэг — support page sections
-  contact: "REPLACE_CONTACT_ID", // Холбоо барих мэдээлэл — contact details
+  news: "94nLQX6yxQON9yMmYrFkE", // Мэдээ — news posts
+  support: "U_baMHeMuooMWCFdJQEQf", // Дэмжлэг — support page sections
+  contact: "VIkMzrnZS1Ppk-WXh0Q_j", // Холбоо барих мэдээлэл — contact details
 } as const;
 
 export type CmsCategoryKey = keyof typeof CMS_CATEGORIES;
