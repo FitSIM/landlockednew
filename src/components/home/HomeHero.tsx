@@ -4,23 +4,18 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { images } from "@/lib/images";
-import { CP_POST_LIST } from "@/graphql/cms/queries";
-import { useQuery } from "@apollo/client/react";
-import type { CpPostListData } from "@/graphql/cms/queries";
-import { CMS_CATEGORIES } from "@/lib/cms-slots";
+import { useSlotPosts } from "@/lib/hooks/useCms";
+import { CMS_CATEGORIES, HOME_HERO_TITLE } from "@/lib/cms-slots";
 
 
 const slides = [images.heroHome, images.heroAbout, images.heroEvents];
 
 export default function HomeHero() {
 
-   const { data } = useQuery<CpPostListData>(CP_POST_LIST, {
-      variables: {
-        categoryIds: [CMS_CATEGORIES.hero],
-        status: "published",
-      },
-    });
-    const posts = data?.cpPostList?.posts || [];
+   // The hero paragraph is the content of the hero post in the "Нүүр" category.
+   const { posts } = useSlotPosts(CMS_CATEGORIES.home);
+   const heroPost =
+     posts.find((p) => p.title === HOME_HERO_TITLE) ?? posts[0];
   
   const [index, setIndex] = useState(0);
 
@@ -94,7 +89,7 @@ export default function HomeHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1 }}
           className="max-w-[760px] text-center text-base font-normal leading-7 text-white/80"
-          dangerouslySetInnerHTML={{ __html: posts[0]?.content || "" }}
+          dangerouslySetInnerHTML={{ __html: heroPost?.content || "" }}
         />
 
         <motion.div

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useSlotPosts, fieldsOf } from "@/lib/hooks/useCms";
-import { CMS_CATEGORIES } from "@/lib/cms-slots";
+import { CMS_CATEGORIES, HOME_YOUTH_HEADING_TITLE } from "@/lib/cms-slots";
 import type { Post } from "@/graphql/cms/queries";
 
 const MAP_PIN_PATH =
@@ -83,11 +83,14 @@ function EventCard({ post }: { post: Post }) {
   );
 }
 
-export default function HomeYouthSection({ headingHtml }: { headingHtml?: string }) {
-  const { posts: allPosts, loading } = useSlotPosts(CMS_CATEGORIES.youthEvents);
+export default function HomeYouthSection() {
+  const { posts: homePosts, loading } = useSlotPosts(CMS_CATEGORIES.home);
 
-  // v1 seed copies lost their custom fields; only posts with eventMeta count.
-  const posts = allPosts.filter((p) => fieldsOf(p).date);
+  // Youth events are the home-category posts carrying eventMeta fields.
+  const posts = homePosts.filter((p) => fieldsOf(p).date);
+  const headingHtml = homePosts.find(
+    (p) => p.title === HOME_YOUTH_HEADING_TITLE,
+  )?.content;
 
   if (loading || posts.length === 0) return null;
 

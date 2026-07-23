@@ -22,7 +22,7 @@ const formFields = [
 ];
 
 export default function ContactPage() {
-  const { posts: contactPosts } = useSlotPosts(CMS_CATEGORIES.contactInfo);
+  const { posts: contactPosts } = useSlotPosts(CMS_CATEGORIES.contact);
 
   // Contact details come live from the contact-info post's custom fields
   // (the v1 seed copy lost its fields, so pick the post that has them).

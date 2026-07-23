@@ -12,15 +12,15 @@ import { usePageContent, useSlotPosts } from "@/lib/hooks/useCms";
 import { CMS_CATEGORIES } from "@/lib/cms-slots";
 
 export default function HomeClient() {
-  // Homepage = composition of CMS section slots. Every section reads its own
-  // category; the monolithic "home" page content / static snapshot remains
-  // the fallback only when the slot mechanism has no posts at all.
-  const { posts: sections, loading: sectionsLoading } = useSlotPosts(
-    CMS_CATEGORIES.sectionHome,
+  // Homepage = composition of CMS section slots. Every section reads its
+  // posts from the "Нүүр" category; the monolithic "home" page content /
+  // static snapshot remains the fallback only when the category is empty.
+  const { posts: homePosts, loading: homeLoading } = useSlotPosts(
+    CMS_CATEGORIES.home,
   );
   const { html: fallbackHtml, loading: fallbackLoading } = usePageContent("home");
 
-  if (sectionsLoading) {
+  if (homeLoading) {
     return (
       <div className="flex min-h-[60vh] items-center justify-center">
         <Loader size="lg" />
@@ -28,7 +28,7 @@ export default function HomeClient() {
     );
   }
 
-  if (sections.length === 0) {
+  if (homePosts.length === 0) {
     return (
       <>
         <PageAnimator />
@@ -47,21 +47,14 @@ export default function HomeClient() {
     );
   }
 
-  const newsHeading = sections.find((p) =>
-    p.title?.includes("Мэдээний толгой"),
-  )?.content;
-  const youthHeading = sections.find((p) =>
-    p.title?.includes("Залуучуудын толгой"),
-  )?.content;
-
   return (
     <>
       <PageAnimator />
       <HomeHero />
       <HomeHistorySection />
-      <HomeNewsSection headingHtml={newsHeading} />
+      <HomeNewsSection />
       <HomeQuoteSection />
-      <HomeYouthSection headingHtml={youthHeading} />
+      <HomeYouthSection />
       <HomeNewsletterSection />
     </>
   );

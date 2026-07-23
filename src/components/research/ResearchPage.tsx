@@ -190,15 +190,12 @@ function ReportCard({ title, body, image, index }: any) {
 
 export default function ResearchPage() {
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
-  const { posts: categoryPosts } = useSlotPosts(CMS_CATEGORIES.researchCategories);
-  const { posts: documentPosts } = useSlotPosts(CMS_CATEGORIES.documents);
-  const { posts: reportPosts } = useSlotPosts(CMS_CATEGORIES.reports);
+  // Research categories, documents and reports all live in the
+  // "Судалгааны ангилал" category, distinguished by their custom fields.
+  const { posts: researchPosts } = useSlotPosts(CMS_CATEGORIES.research);
 
-  // Categories, documents and reports come live from erxes; the hardcoded
-  // arrays remain as fallbacks.
   const categories = useMemo(() => {
-    // v1 seed copies lost their custom fields; only posts with a group count.
-    const valid = categoryPosts.filter((p) => fieldsOf(p).group);
+    const valid = researchPosts.filter((p) => fieldsOf(p).count);
     if (!valid.length) return fallbackCategories;
     return valid.map((p) => {
       const m = fieldsOf(p);
@@ -210,10 +207,10 @@ export default function ResearchPage() {
         body: (p.excerpt || (p.content ?? "").replace(/<[^>]+>/g, "")).trim(),
       };
     });
-  }, [categoryPosts]);
+  }, [researchPosts]);
 
   const categoryDocuments = useMemo(() => {
-    const valid = documentPosts.filter((p) => fieldsOf(p).date);
+    const valid = researchPosts.filter((p) => fieldsOf(p).fileType);
     if (!valid.length) return fallbackCategoryDocuments;
     const grouped: Record<string, { title: string; meta: string }[]> = {};
     for (const p of valid) {
@@ -225,17 +222,17 @@ export default function ResearchPage() {
       });
     }
     return grouped;
-  }, [documentPosts]);
+  }, [researchPosts]);
 
   const reports = useMemo(() => {
-    const valid = reportPosts.filter((p) => fieldsOf(p).year);
+    const valid = researchPosts.filter((p) => fieldsOf(p).year);
     if (!valid.length) return fallbackReports;
     return valid.map((p) => ({
       title: p.title || "",
       body: (p.excerpt || (p.content ?? "").replace(/<[^>]+>/g, "")).trim(),
       image: p.images?.[0]?.url || images.doc1,
     }));
-  }, [reportPosts]);
+  }, [researchPosts]);
 
   function scrollTo(id: string) {
     const el = sectionRefs.current[id];

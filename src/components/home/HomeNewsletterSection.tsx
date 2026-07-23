@@ -1,17 +1,18 @@
 "use client";
 
 import { useSlotPosts, fieldsOf } from "@/lib/hooks/useCms";
-import { CMS_CATEGORIES } from "@/lib/cms-slots";
+import { CMS_CATEGORIES, HOME_NEWSLETTER_TITLE } from "@/lib/cms-slots";
 
-// Homepage newsletter block: the newsletter category's first post (title =
-// heading, content = description, custom field "benefits"). The form itself
-// is UI, not content.
+// Homepage newsletter block: the newsletter post in the home category
+// (title = heading, content = description, custom field "benefits").
+// The form itself is UI, not content.
 export default function HomeNewsletterSection() {
-  const { posts, loading } = useSlotPosts(CMS_CATEGORIES.newsletter);
+  const { posts, loading } = useSlotPosts(CMS_CATEGORIES.home);
 
-  if (loading || posts.length === 0) return null;
+  if (loading) return null;
 
-  const post = posts[0];
+  const post = posts.find((p) => p.title === HOME_NEWSLETTER_TITLE);
+  if (!post) return null;
 
   return (
     <div className="pencil-page">

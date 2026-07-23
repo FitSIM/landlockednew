@@ -117,7 +117,7 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
 export default function Footer() {
   const locale = useLocale();
   const cmsMenu = useMenus("footer");
-  const { posts: contactPosts } = useSlotPosts(CMS_CATEGORIES.contactInfo);
+  const { posts: contactPosts } = useSlotPosts(CMS_CATEGORIES.contact);
 
   // Contact block + org description come live from the contact-info post
   // (the v1 seed copy lost its fields, so pick the post that has them).

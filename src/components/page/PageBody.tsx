@@ -8,7 +8,7 @@ import PriorityHero from "@/components/luxury/PriorityHero";
 import Loader from "@/components/common/Loader";
 import { getHeroImage } from "@/lib/images";
 import { usePageContent, usePageName, useSectionHtml } from "@/lib/hooks/useCms";
-import { PAGE_SECTION_CATEGORY } from "@/lib/cms-slots";
+import { CMS_CATEGORIES, PAGE_SECTION_SOURCE } from "@/lib/cms-slots";
 
 const pageTitles: Record<string, { eyebrow?: string; body?: string }> = {
   "about-brief-history": {
@@ -61,8 +61,11 @@ function Body({ html, withHero }: { html: string; withHero: boolean }) {
 export default function PageBody({ slug }: { slug: string }) {
   // Ordered section posts (individually editable in erxes) are preferred;
   // the monolithic page content / static snapshot chain remains the fallback.
+  const source = PAGE_SECTION_SOURCE[slug];
   const { html: sectionHtml, loading: sectionsLoading } = useSectionHtml(
-    PAGE_SECTION_CATEGORY[slug],
+    source
+      ? { categoryId: CMS_CATEGORIES[source.categoryKey], titlePrefix: source.titlePrefix }
+      : undefined,
   );
   const { html: pageHtml, loading: pageLoading } = usePageContent(slug);
   const pageName = usePageName(slug);

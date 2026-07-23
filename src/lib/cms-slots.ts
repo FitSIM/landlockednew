@@ -1,40 +1,66 @@
 // Central registry of erxes CMS category IDs used as content "slots".
-// A category = a slot on a page; posts inside it are the content.
-// IDs come from the seeding run (see content-map.md).
+// A category = a slot on the site; posts inside it are the content.
+// Structure was reorganized in erxes admin — keep this file in sync with it.
 
 export const CMS_CATEGORIES = {
-  blog: "P_fvK6INwc6n8JcSrMJk4", // legacy: holds the original 15 news/event posts
-  news: "fDPBSnFfS6rbdCetfxj6L", // Мэдээ
-  events: "xNKx6Ayu0Pqk-S7O7gjIr", // Арга хэмжээ
-  history: "8UntzskQ7S7D_lpOxURVg", // Бидний түүх
-  hero: "wtGvaOlzBTNrYn9XRl10q", // Нүүр — Толгой хэсэг
-  focusAreas: "j3KIVYZ6vGXEs-JWduQjk", // Үндсэн чиглэл
-  quote: "S3yYRZReAX_rvjvK_auGx", // Ишлэл
-  newsletter: "zDzl0KEKD4wDm2BiDtA-a", // Мэдээллийн захиалга
-  youthEvents: "vmHqOVNNuttygQIztyfV0", // Залуучуудын арга хэмжээ
-  researchCategories: "wn-n-jiVPRa7xkYb2zvxA", // Судалгааны ангилал
-  documents: "cEX_lWey5rEUIHmJuU9v3", // Баримт бичиг
-  reports: "HLY8TAEWwrLoUpoAbeuDm", // Тайлан
-  gallery: "j3HTL7GxVKrpRTSiDoW0y", // Зургийн цомог
-  contactInfo: "MObh3lww2B5-HtOnoIX5M", // Холбоо барих мэдээлэл
-  sectionHome: "7N3YIa5Zo0i6R3YFZaQ14", // Хэсэг: Нүүр хуудас
+  home: "ISxhb0gnJAeSuMurMI4eM", // Нүүр — homepage slots
+  about: "P4sdbASXvnc32LMHUuOUO", // Бидний тухай — about page sections
+  priorities: "VZM2SRBqM3AnUODJE_8X1", // Priorities — priority 1-5 sections
+  vienna: "Woy3E3KS6l7FJXD5Xb701", // Vienna — lldcs-vienna sections
+  awaza: "FD6RZq0PQmOzr8Y4yNiFf", // Awaza — lldcs-awaza sections
+  events: "Dn6dByeptqyf4nVbU53dH", // Арга хэмжээ — event posts
+  research: "7ObdTkN1eYOaI_Cfb7ydJ", // Судалгааны ангилал — research cats/docs/reports
+  gallery: "YQpvuWC7F86QnOx61SaGz", // photos
+  eLibrary: "ma7c-AJsMbDEodgLIM9qD", // e-library sections
+  partners: "t85PQgeGpGhACNZumd15A", // Хамтрагч байгууллагууд — partner sections
+  news: "REPLACE_NEWS_ID", // Мэдээ — news posts
+  support: "REPLACE_SUPPORT_ID", // Дэмжлэг — support page sections
+  contact: "REPLACE_CONTACT_ID", // Холбоо барих мэдээлэл — contact details
 } as const;
 
-// Page slug -> its section category id ("Хуудасны хэсгүүд" children).
-// Posts in these categories are ordered HTML sections rendered by PageBody.
-export const PAGE_SECTION_CATEGORY: Record<string, string> = {
-  "about-brief-history": "sc7vZ0PeNzhUopVJNK2TS",
-  "about-executive-greeting": "NJ7lqvUHVQmdTTjrgHOmQ",
-  "about-goals": "3NiCOomAzCL325P5tmLJW",
-  "about-multilateral-agreement": "llAtQH7xh-ygvum_orOxf",
-  "lldcs-vienna": "RZamyyEvOT7Z57lFRLOSV",
-  "lldcs-awaza": "806vLZRwS312E-iZoit9Z",
-  "priority-1": "XZZrlJ7CMWz3_ejXlgVri",
-  "priority-2": "cIrny9sIzOYrogjiRxCao",
-  "priority-3": "R-L4swN7e-B5zwOoPUYPp",
-  "priority-4": "bSdKFQ0HAjnpqldhNTk_M",
-  "priority-5": "IhhXONqWxsvf18Qb1oRvs",
-  "e-library": "6c8HLmTAsIRk2U2jKQ4cp",
-  "partner-institutions": "O8MG7yYiXVPMMQrgbR2E2",
-  support: "PLB5znL-4SFgsnEcxZMz-",
+export type CmsCategoryKey = keyof typeof CMS_CATEGORIES;
+
+// Page slug -> where its section posts live. Sections are the posts in the
+// category whose title starts with titlePrefix ("Page name — Section name").
+export const PAGE_SECTION_SOURCE: Record<
+  string,
+  { categoryKey: CmsCategoryKey; titlePrefix: string }
+> = {
+  "about-brief-history": { categoryKey: "about", titlePrefix: "Бидний тухай —" },
+  "about-executive-greeting": {
+    categoryKey: "about",
+    titlePrefix: "Удирдах зөвлөлийн даргын мэндчилгээ —",
+  },
+  "about-goals": { categoryKey: "about", titlePrefix: "Зорилго, зорилтууд —" },
+  "about-multilateral-agreement": {
+    categoryKey: "about",
+    titlePrefix: "Олон талт хэлэлцээр —",
+  },
+  "lldcs-vienna": { categoryKey: "vienna", titlePrefix: "ДГХБО - Вена —" },
+  "lldcs-awaza": { categoryKey: "awaza", titlePrefix: "ДГХБО - Аваза —" },
+  "priority-1": { categoryKey: "priorities", titlePrefix: "Priority 1 —" },
+  "priority-2": { categoryKey: "priorities", titlePrefix: "Priority 2 —" },
+  "priority-3": { categoryKey: "priorities", titlePrefix: "Priority 3 —" },
+  "priority-4": { categoryKey: "priorities", titlePrefix: "Priority 4 —" },
+  "priority-5": { categoryKey: "priorities", titlePrefix: "Priority 5 —" },
+  "e-library": { categoryKey: "eLibrary", titlePrefix: "Цахим номын сан —" },
+  "partner-institutions": {
+    categoryKey: "partners",
+    titlePrefix: "Хамтрагч байгууллагууд —",
+  },
+  support: { categoryKey: "support", titlePrefix: "Дэмжлэг —" },
 };
+
+// Homepage slots live in the "home" (Нүүр) category and are identified by
+// post title.
+export const HOME_HERO_TITLE = "ОЛОН УЛСЫН СУДАЛГААНЫ ТӨВ";
+export const HOME_HISTORY_PREFIX = "Бидний түүх";
+export const HOME_FOCUS_TITLES = [
+  "Бодлогын судалгаа",
+  "Олон улсын хамтын ажиллагаа",
+  "Мэдээллийн төв",
+];
+export const HOME_QUOTE_TITLE = "Ерөнхийлөгчийн ишлэл";
+export const HOME_NEWSLETTER_TITLE = "Мэдээллийн захиалга";
+export const HOME_NEWS_HEADING_TITLE = "Нүүр — Мэдээний толгой";
+export const HOME_YOUTH_HEADING_TITLE = "Нүүр — Залуучуудын толгой";

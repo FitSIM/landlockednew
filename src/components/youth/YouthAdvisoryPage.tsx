@@ -383,13 +383,12 @@ function EventModal({
 export default function YouthAdvisoryPage() {
   const [selectedEvent, setSelectedEvent] = useState<YouthEvent | null>(null);
   const { posts: newsPosts } = usePosts("news");
-  const { posts: youthEventPosts } = useSlotPosts(CMS_CATEGORIES.youthEvents);
+  const { posts: homePosts } = useSlotPosts(CMS_CATEGORIES.home);
 
-  // Youth events come live from erxes (youth-events category, eventMeta
-  // custom fields); the hardcoded list remains as the fallback.
+  // Youth events are the home-category posts carrying eventMeta fields; the
+  // hardcoded list remains as the fallback.
   const youthEvents = useMemo<YouthEvent[]>(() => {
-    // v1 seed copies lost their custom fields; only eventMeta posts count.
-    const valid = youthEventPosts.filter((p) => fieldsOf(p).date);
+    const valid = homePosts.filter((p) => fieldsOf(p).date);
     if (!valid.length) return fallbackYouthEvents;
     const lines = (s?: string) => (s ? s.split("\n").filter(Boolean) : []);
     return valid.map((p) => {
@@ -407,7 +406,7 @@ export default function YouthAdvisoryPage() {
         schedule: lines(m.schedule),
       };
     });
-  }, [youthEventPosts]);
+  }, [homePosts]);
 
   // Youth news updates come live from erxes (news-youth-* posts); the
   // hardcoded list remains as the fallback when the CMS is unavailable.

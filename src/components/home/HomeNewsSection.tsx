@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { usePosts } from "@/lib/hooks/useCms";
+import { usePosts, useSlotPosts } from "@/lib/hooks/useCms";
+import { CMS_CATEGORIES, HOME_NEWS_HEADING_TITLE } from "@/lib/cms-slots";
 import type { Post } from "@/graphql/cms/queries";
 
 function formatDate(iso?: string) {
@@ -60,8 +61,12 @@ function SmallCard({ post }: { post: Post }) {
   );
 }
 
-export default function HomeNewsSection({ headingHtml }: { headingHtml?: string }) {
+export default function HomeNewsSection() {
   const { posts, loading } = usePosts("news");
+  const { posts: homePosts } = useSlotPosts(CMS_CATEGORIES.home);
+  const headingHtml = homePosts.find(
+    (p) => p.title === HOME_NEWS_HEADING_TITLE,
+  )?.content;
 
   if (loading || posts.length === 0) return null;
 

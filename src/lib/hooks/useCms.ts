@@ -28,10 +28,6 @@ import { CMS_CATEGORIES } from "@/lib/cms-slots";
 // MN (default) and the API returns untranslated posts as empty/"Untitled"
 // when a language filter is applied.
 
-// News/event posts live in the legacy "Blog" category; the dedicated
-// "Мэдээ" (news) and "Арга хэмжээ" (events) categories hold future posts.
-const BLOG_CATEGORY_ID = CMS_CATEGORIES.blog;
-
 // Re-seeding the CMS gave colliding slugs a numeric suffix ("home" → "home_3"),
 // so match the bare slug first, then a suffixed variant.
 function matchesSlug(candidate: string | undefined, slug: string) {
@@ -97,27 +93,18 @@ export function usePageContent(slug: string) {
 
 export function usePosts(type: string) {
   const mounted = useMounted();
-  const dedicatedCategory =
-    type === "news" ? CMS_CATEGORIES.news : type === "event" ? CMS_CATEGORIES.events : null;
+  const categoryId =
+    type === "news" ? CMS_CATEGORIES.news : CMS_CATEGORIES.events;
   const { data, error, loading } = useQuery<CpPostListData>(CP_POST_LIST, {
     variables: {
-      categoryIds: [BLOG_CATEGORY_ID, ...(dedicatedCategory ? [dedicatedCategory] : [])],
+      categoryIds: [categoryId],
       status: "published",
       limit: 50,
     },
     skip: !mounted,
   });
 
-  // Legacy Blog posts carry type "post"; news vs event is distinguished by
-  // the slug prefix ("news-*" / "event-*"). Posts filed directly in the
-  // dedicated news/events category count without the prefix requirement.
-  const prefix = `${type}-`;
-  const cmsPosts = data?.cpPostList?.posts?.filter(
-    (p) =>
-      p.slug?.startsWith(prefix) ||
-      (dedicatedCategory &&
-        p.categories?.some((c) => c._id === dedicatedCategory)),
-  );
+  const cmsPosts = data?.cpPostList?.posts;
   const needFallback =
     mounted && !loading && (Boolean(error) || cmsPosts?.length === 0);
 
@@ -223,9 +210,10 @@ export function usePage(slug: string) {
   return { page, loading: !mounted || loading };
 }
 
-// Posts of one slot category, ordered by customFieldsData.order (fallback:
-// creation order). Used for section posts, documents, gallery, youth events.
-export function useSlotPosts(categoryId: string | undefined) {
+// Posts of one slot category, ordered by the "order" custom field (fallback:
+// creation order). Optional titlePrefix narrows to posts whose title starts
+// with it (page sections inside a shared area category).
+export function useSlotPosts(categoryId: string | undefined, titlePrefix?: string) {
   const mounted = useMounted();
   const { data, error, loading } = useQuery<CpPostListData>(CP_POST_LIST, {
     variables: {
@@ -236,12 +224,15 @@ export function useSlotPosts(categoryId: string | undefined) {
     skip: !mounted || !categoryId,
   });
 
-  const posts = (data?.cpPostList?.posts ?? []).slice().sort((a, b) => {
-    const orderA = Number(fieldsOf(a).order ?? 0);
-    const orderB = Number(fieldsOf(b).order ?? 0);
-    if (orderA !== orderB) return orderA - orderB;
-    return String(a.createdAt ?? "").localeCompare(String(b.createdAt ?? ""));
-  });
+  const posts = (data?.cpPostList?.posts ?? [])
+    .filter((p) => !titlePrefix || p.title?.startsWith(titlePrefix))
+    .slice()
+    .sort((a, b) => {
+      const orderA = Number(fieldsOf(a).order ?? 0);
+      const orderB = Number(fieldsOf(b).order ?? 0);
+      if (orderA !== orderB) return orderA - orderB;
+      return String(a.createdAt ?? "").localeCompare(String(b.createdAt ?? ""));
+    });
 
   return { posts, loading: !mounted || loading, error };
 }
@@ -251,10 +242,15 @@ export function useSlotPosts(categoryId: string | undefined) {
 // existing pencil-page CSS selectors keep working). Returns undefined while
 // loading, null when the slot has no posts (caller falls back to the page
 // content / static snapshot chain).
-export function useSectionHtml(categoryId: string | undefined) {
-  const { posts, loading, error } = useSlotPosts(categoryId);
+export function useSectionHtml(
+  source: { categoryId: string; titlePrefix: string } | undefined,
+) {
+  const { posts, loading, error } = useSlotPosts(
+    source?.categoryId,
+    source?.titlePrefix,
+  );
 
-  if (!categoryId) return { html: null, loading: false };
+  if (!source) return { html: null, loading: false };
   if (loading) return { html: undefined, loading: true };
   if (error || posts.length === 0) return { html: null, loading: false };
   return { html: posts.map((p) => p.content ?? "").join("\n"), loading: false };

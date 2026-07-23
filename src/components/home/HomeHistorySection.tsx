@@ -2,7 +2,11 @@
 
 import Link from "next/link";
 import { useSlotPosts } from "@/lib/hooks/useCms";
-import { CMS_CATEGORIES } from "@/lib/cms-slots";
+import {
+  CMS_CATEGORIES,
+  HOME_FOCUS_TITLES,
+  HOME_HISTORY_PREFIX,
+} from "@/lib/cms-slots";
 import type { Post } from "@/graphql/cms/queries";
 
 function FeatureCard({ post, index }: { post: Post; index: number }) {
@@ -39,18 +43,21 @@ function FeatureCard({ post, index }: { post: Post; index: number }) {
   );
 }
 
-// Homepage "Бидний түүх" + focus cards: posts in the history category are
-// the section's text blocks, posts in focus-areas are the cards. Rendered
-// inside the original single History Section wrapper.
+// Homepage "Бидний түүх" + focus cards: history posts are the "Бидний түүх*"
+// posts in the home category, focus cards are the three titled focus posts.
+// Rendered inside the original single History Section wrapper.
 export default function HomeHistorySection() {
-  const { posts: historyPosts, loading: historyLoading } = useSlotPosts(
-    CMS_CATEGORIES.history,
-  );
-  const { posts: focusPosts, loading: focusLoading } = useSlotPosts(
-    CMS_CATEGORIES.focusAreas,
-  );
+  const { posts, loading } = useSlotPosts(CMS_CATEGORIES.home);
 
-  if (historyLoading || focusLoading) return null;
+  if (loading) return null;
+
+  const historyPosts = posts.filter((p) =>
+    p.title?.startsWith(HOME_HISTORY_PREFIX),
+  );
+  const focusPosts = HOME_FOCUS_TITLES.map((title) =>
+    posts.find((p) => p.title === title),
+  ).filter((p): p is Post => Boolean(p));
+
   if (historyPosts.length === 0 && focusPosts.length === 0) return null;
 
   const [first, ...rest] = historyPosts;

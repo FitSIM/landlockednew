@@ -34,10 +34,9 @@ export default function PhotosPage() {
   const [selected, setSelected] = useState<{ image: string; tag: string } | null>(null);
   const { posts: galleryPosts } = useSlotPosts(CMS_CATEGORIES.gallery);
 
-  // Gallery comes live from erxes (gallery category; featured flag marks the
+  // Gallery comes live from the photos category (featured flag marks the
   // photo story); hardcoded data remains as the fallback.
   const { featured, gallery } = useMemo(() => {
-    // v1 seed copies lost their custom fields; only posts with a tag count.
     const valid = galleryPosts.filter((p) => fieldsOf(p).tag);
     if (!valid.length) {
       return { featured: fallbackFeatured, gallery: fallbackGallery };
