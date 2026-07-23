@@ -16,6 +16,8 @@ export const CMS_CATEGORIES = {
   news: "94nLQX6yxQON9yMmYrFkE", // Мэдээ — news posts
   support: "U_baMHeMuooMWCFdJQEQf", // Дэмжлэг — support page sections
   contact: "VIkMzrnZS1Ppk-WXh0Q_j", // Холбоо барих мэдээлэл — contact details
+  youth: "d2Xs8CPxo_G-evoqGChce", // Залуучуудын зөвлөл — youth events
+  reports: "-KUsoUmpCMn3EGGzK-jGZ", // Тайлан — annual reports
 } as const;
 
 export type CmsCategoryKey = keyof typeof CMS_CATEGORIES;

@@ -85,9 +85,11 @@ function EventCard({ post }: { post: Post }) {
 
 export default function HomeYouthSection() {
   const { posts: homePosts, loading } = useSlotPosts(CMS_CATEGORIES.home);
+  const { posts: youthPosts } = useSlotPosts(CMS_CATEGORIES.youth);
 
-  // Youth events are the home-category posts carrying eventMeta fields.
-  const posts = homePosts.filter((p) => fieldsOf(p).date);
+  // Youth events are the posts in the "Залуучуудын зөвлөл" category
+  // (eventMeta custom fields); v1 copies without fields are ignored.
+  const posts = youthPosts.filter((p) => fieldsOf(p).date);
   const headingHtml = homePosts.find(
     (p) => p.title === HOME_YOUTH_HEADING_TITLE,
   )?.content;

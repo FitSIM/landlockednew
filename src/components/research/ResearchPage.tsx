@@ -193,6 +193,7 @@ export default function ResearchPage() {
   // Research categories, documents and reports all live in the
   // "Судалгааны ангилал" category, distinguished by their custom fields.
   const { posts: researchPosts } = useSlotPosts(CMS_CATEGORIES.research);
+  const { posts: reportPosts } = useSlotPosts(CMS_CATEGORIES.reports);
 
   const categories = useMemo(() => {
     const valid = researchPosts.filter((p) => fieldsOf(p).count);
@@ -225,14 +226,13 @@ export default function ResearchPage() {
   }, [researchPosts]);
 
   const reports = useMemo(() => {
-    const valid = researchPosts.filter((p) => fieldsOf(p).year);
-    if (!valid.length) return fallbackReports;
-    return valid.map((p) => ({
+    if (!reportPosts.length) return fallbackReports;
+    return reportPosts.map((p) => ({
       title: p.title || "",
       body: (p.excerpt || (p.content ?? "").replace(/<[^>]+>/g, "")).trim(),
       image: p.images?.[0]?.url || images.doc1,
     }));
-  }, [researchPosts]);
+  }, [reportPosts]);
 
   function scrollTo(id: string) {
     const el = sectionRefs.current[id];

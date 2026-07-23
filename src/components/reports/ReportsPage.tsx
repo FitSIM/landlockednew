@@ -5,16 +5,24 @@ import { motion, AnimatePresence } from "framer-motion";
 import LuxuryHero from "@/components/luxury/LuxuryHero";
 import { images, reportCardImages } from "@/lib/images";
 import { AnimatedText } from "@/components/motion/animations";
+import { useSlotPosts, fieldsOf } from "@/lib/hooks/useCms";
+import { CMS_CATEGORIES } from "@/lib/cms-slots";
 
 const YEARS = Array.from({ length: 17 }, (_, i) => 2025 - i);
 
-function YearCard({ year, offset }: { year: number; offset: number }) {
+type ReportCardItem = {
+  badge: string;
+  title: string;
+  body: string;
+  image: string;
+};
+
+function YearCard({ item, offset }: { item: ReportCardItem; offset: number }) {
   const abs = Math.min(Math.abs(offset), 4);
   const scale = 1 - abs * 0.06;
   const opacity = abs > 2 ? Math.max(0.2, 1 - abs * 0.3) : 1;
   const translateX = offset * 320;
   const zIndex = 20 - abs * 5;
-  const image = reportCardImages[year % reportCardImages.length];
 
   return (
     <motion.div
@@ -29,18 +37,18 @@ function YearCard({ year, offset }: { year: number; offset: number }) {
       >
         <motion.div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url('${image}')` }}
+          style={{ backgroundImage: `url('${item.image}')` }}
           whileHover={{ scale: 1.08 }}
           transition={{ duration: 0.7 }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0F2447]/95 via-[#0F2447]/40 to-transparent" />
         <div className="relative z-10 flex flex-col gap-3 p-6">
           <div className="w-fit rounded-full bg-white/10 px-3 py-1.5 text-xs font-bold text-white backdrop-blur-md">
-            Архив
+            {item.badge}
           </div>
-          <div className="text-4xl font-bold text-white">{year}</div>
+          <div className="text-4xl font-bold text-white">{item.title}</div>
           <div className="text-sm leading-snug text-white/80">
-            {year} оны тайлан, судалгаа, бодлогын баримт бичгүүд.
+            {item.body}
           </div>
           <motion.div
             className="mt-2 text-sm font-semibold text-white"
@@ -60,13 +68,30 @@ export default function ReportsPage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const touchStart = useRef(0);
   const lastWheelTime = useRef(0);
+  const { posts: reportPosts } = useSlotPosts(CMS_CATEGORIES.reports);
+
+  // Carousel cards come from the "Тайлан" category; the generated year
+  // archive remains as the fallback when it has no posts.
+  const items: ReportCardItem[] = reportPosts.length
+    ? reportPosts.map((p) => ({
+        badge: fieldsOf(p).year ? `${fieldsOf(p).year} оны тайлан` : "Тайлан",
+        title: p.title || "",
+        body: (p.excerpt || (p.content ?? "").replace(/<[^>]+>/g, "")).trim(),
+        image: p.images?.[0]?.url || reportCardImages[0],
+      }))
+    : YEARS.map((year) => ({
+        badge: "Архив",
+        title: String(year),
+        body: `${year} оны тайлан, судалгаа, бодлогын баримт бичгүүд.`,
+        image: reportCardImages[year % reportCardImages.length],
+      }));
 
   const changeIndex = useCallback((delta: number) => {
     const now = Date.now();
     if (now - lastWheelTime.current < 320) return;
     lastWheelTime.current = now;
-    setActiveIndex((prev) => Math.max(0, Math.min(prev + delta, YEARS.length - 1)));
-  }, []);
+    setActiveIndex((prev) => Math.max(0, Math.min(prev + delta, items.length - 1)));
+  }, [items.length]);
 
   useEffect(() => {
     const el = containerRef.current;
@@ -149,10 +174,10 @@ export default function ReportsPage() {
             style={{ perspective: 1200 }}
           >
             <AnimatePresence initial={false}>
-              {YEARS.map((year, index) => {
+              {items.map((item, index) => {
                 const offset = index - activeIndex;
                 if (Math.abs(offset) > 3) return null;
-                return <YearCard key={year} year={year} offset={offset} />;
+                return <YearCard key={item.title} item={item} offset={offset} />;
               })}
             </AnimatePresence>
           </div>
@@ -167,11 +192,11 @@ export default function ReportsPage() {
               ←
             </button>
             <div className="text-sm font-semibold text-[#0F2447]">
-              {YEARS[activeIndex]}
+              {activeIndex + 1} / {items.length}
             </div>
             <button
               onClick={() => changeIndex(1)}
-              disabled={activeIndex === YEARS.length - 1}
+              disabled={activeIndex === items.length - 1}
               className="flex h-10 w-10 items-center justify-center rounded-full border border-[#1E3A8A] text-[#1E3A8A] transition-colors hover:bg-[#1E3A8A] hover:text-white disabled:opacity-30"
               aria-label="Дараах"
             >
