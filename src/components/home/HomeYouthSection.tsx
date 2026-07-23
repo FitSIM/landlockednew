@@ -1,16 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useSlotPosts, fieldsOf, contentBlocks } from "@/lib/hooks/useCms";
+import { useSlotPosts, contentBlocks } from "@/lib/hooks/useCms";
 import { CMS_CATEGORIES, HOME_YOUTH_HEADING_TITLE } from "@/lib/cms-slots";
 import type { Post } from "@/graphql/cms/queries";
 
 const MAP_PIN_PATH =
   "M6.71973 0.60156q-0.81006 0.02734-1.56885 0.31446-0.75537 0.28711-1.41162 0.80664-0.19824 0.15381-0.48535 0.44775-0.28711 0.29395-0.44092 0.48877-0.42041 0.57422-0.67334 1.17578-0.24951 0.60156-0.34863 1.31592-0.04102 0.23926-0.03418 0.68017 0.00684 0.44092 0.03418 0.69385 0.14014 0.88184 0.56054 1.79102 0.50586 1.07666 1.44922 2.27637 0.94678 1.19629 2.19092 2.31738 0.22559 0.19482 0.32129 0.27343 0.09912 0.0752 0.19824 0.11622 0.22217 0.11279 0.48877 0.11279 0.2666 0 0.48877-0.11279 0.11279-0.04101 0.19482-0.10254 0.08545-0.06494 0.31104-0.25977 0.96387-0.86816 1.79101-1.83203 0.82715-0.96728 1.37403-1.86621 0.75537-1.27148 0.98437-2.42676 0.23242-1.15527-0.06152-2.29004-0.35205-1.35693-1.35693-2.36523-0.36572-0.37939-0.74512-0.64258-0.37598-0.2666-0.8374-0.46484-1.12109-0.51611-2.42334-0.44776z";
-
-function stripHtml(html?: string) {
-  return (html ?? "").replace(/<[^>]+>/g, "").trim();
-}
 
 function EventCard({ post }: { post: Post }) {
   // content blocks: [0]=tag, [1]=date, [2]=location, [3]=body
@@ -71,7 +67,7 @@ function EventCard({ post }: { post: Post }) {
           data-pencil-name="Desc"
           className="text-[13px]/[20px] box-border w-full text-[#6B7280] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left line-clamp-3"
         >
-          {stripHtml(post.excerpt || post.content)}
+          {blocks[3] || ""}
         </div>
         <Link
           href="/en/youth-advisory"

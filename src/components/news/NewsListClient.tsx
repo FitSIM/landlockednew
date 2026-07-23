@@ -5,7 +5,7 @@ import Link from "next/link";
 import LuxuryHero from "@/components/luxury/LuxuryHero";
 import { images } from "@/lib/images";
 import { AnimatedText } from "@/components/motion/animations";
-import { usePage } from "@/lib/hooks/useCms";
+import { usePage, summaryOf } from "@/lib/hooks/useCms";
 import type { Post } from "@/graphql/cms/queries";
 
 export default function NewsListClient({ posts }: { posts: Post[] }) {
@@ -65,7 +65,7 @@ export default function NewsListClient({ posts }: { posts: Post[] }) {
                       <div className="text-lg font-bold text-[#0F2447] transition-colors group-hover:text-[#1E3A8A]">
                         {news.title}
                       </div>
-                      <div className="text-sm leading-relaxed text-[#6B7280] line-clamp-3">{news.excerpt}</div>
+                      <div className="text-sm leading-relaxed text-[#6B7280] line-clamp-3">{summaryOf(news, 180)}</div>
                       <div className="mt-auto pt-2 text-sm font-semibold text-[#1E3A8A]">Дэлгэрэнгүй →</div>
                     </div>
                   </motion.div>

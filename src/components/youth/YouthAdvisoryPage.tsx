@@ -6,7 +6,7 @@ import Link from "next/link";
 import LuxuryHero from "@/components/luxury/LuxuryHero";
 import { images, documentCardImages } from "@/lib/images";
 import { AnimatedText, MagneticButton } from "@/components/motion/animations";
-import { usePosts, useSlotPosts, contentBlocks } from "@/lib/hooks/useCms";
+import { usePosts, useSlotPosts, contentBlocks, summaryOf } from "@/lib/hooks/useCms";
 import { CMS_CATEGORIES } from "@/lib/cms-slots";
 
 const fallbackUpdates = [
@@ -419,7 +419,7 @@ export default function YouthAdvisoryPage() {
     return youthNews.slice(0, 3).map((p) => ({
       title: p.title || "",
       date: formatUpdateDate(p.publishedDate ?? p.createdAt),
-      excerpt: p.excerpt || "",
+      excerpt: summaryOf(p, 160),
       slug: p.slug || "",
     }));
   }, [newsPosts]);

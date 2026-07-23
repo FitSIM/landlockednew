@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePosts, useSlotPosts, contentBlocks } from "@/lib/hooks/useCms";
+import { usePosts, useSlotPosts, contentBlocks, summaryOf } from "@/lib/hooks/useCms";
 import { CMS_CATEGORIES, HOME_NEWS_HEADING_TITLE } from "@/lib/cms-slots";
 import type { Post } from "@/graphql/cms/queries";
 
@@ -134,7 +134,7 @@ export default function HomeNewsSection() {
             data-pencil-name="Featured Body"
             className="text-[14px]/[22px] box-border w-full text-[#6B7280] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left"
           >
-            {stripHtml(featured.excerpt || featured.content)}
+            {summaryOf(featured, 220)}
           </div>
           <div
             data-pencil-name="Featured Link"

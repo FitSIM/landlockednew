@@ -256,6 +256,14 @@ export function contentBlocks(content?: string): string[] {
     .filter(Boolean);
 }
 
+// Card summaries are derived from the post Content (what editors actually
+// edit) — the separate Excerpt field goes stale and is only a fallback.
+export function summaryOf(post: Post, max = 200): string {
+  const fromContent = (post.content ?? "").replace(/<[^>]+>/g, "").trim();
+  const text = fromContent || (post.excerpt ?? "").trim();
+  return text.length > max ? `${text.slice(0, max).trimEnd()}...` : text;
+}
+
 export function renderSectionPost(post: Post): string {
   const fields = fieldsOf(post);
   if (!fields.template) return post.content ?? "";

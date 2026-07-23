@@ -7,6 +7,7 @@ import LuxuryHero from "@/components/luxury/LuxuryHero";
 import LuxuryCard from "@/components/luxury/LuxuryCard";
 import { images } from "@/lib/images";
 import { AnimatedText, MagneticButton, ParallaxImage } from "@/components/motion/animations";
+import { summaryOf } from "@/lib/hooks/useCms";
 import type { Post } from "@/graphql/cms/queries";
 
 const filters = ["Бүх", "Олон улсын форум", "Семинар", "Сургалт", "Онлайн"];
@@ -116,7 +117,7 @@ export default function EventsClient({ events }: { events: (Post & { custom?: Re
               {featured.title}
             </AnimatedText>
             <AnimatedText delay={0.2} className="text-[15px] leading-7 text-[#6B7280]">
-              {featured.excerpt}
+              {summaryOf(featured, 220)}
             </AnimatedText>
             <motion.div
               initial={{ opacity: 0 }}
@@ -163,7 +164,7 @@ export default function EventsClient({ events }: { events: (Post & { custom?: Re
                 >
                   <LuxuryCard
                     title={event.title || ""}
-                    body={`${event.excerpt || ""} \n\n${getLocation(event)}  •  ${getDate(event)}`}
+                    body={`${summaryOf(event, 140)} \n\n${getLocation(event)}  •  ${getDate(event)}`}
                     eyebrow={getTag(event)}
                     image={getImage(event)}
                     minHeight="400px"
