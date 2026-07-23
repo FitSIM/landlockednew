@@ -1,10 +1,10 @@
 "use client";
 
-import { useSlotPosts, fieldsOf } from "@/lib/hooks/useCms";
+import { useSlotPosts, contentBlocks } from "@/lib/hooks/useCms";
 import { CMS_CATEGORIES, HOME_NEWSLETTER_TITLE } from "@/lib/cms-slots";
 
 // Homepage newsletter block: the newsletter post in the home category
-// (title = heading, content = description, custom field "benefits").
+// (title = heading; content paragraphs: [0] = description, [1] = benefits).
 // The form itself is UI, not content.
 export default function HomeNewsletterSection() {
   const { posts, loading } = useSlotPosts(CMS_CATEGORIES.home);
@@ -13,6 +13,8 @@ export default function HomeNewsletterSection() {
 
   const post = posts.find((p) => p.title === HOME_NEWSLETTER_TITLE);
   if (!post) return null;
+
+  const blocks = contentBlocks(post.content);
 
   return (
     <div className="pencil-page">
@@ -33,8 +35,9 @@ export default function HomeNewsletterSection() {
         <div
           data-pencil-name="Desc"
           className="text-[14px]/[normal] box-border w-[560px] text-[#DBEAFE] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-center line-clamp-3"
-          dangerouslySetInnerHTML={{ __html: post.content || "" }}
-        />
+        >
+          {blocks[0] || ""}
+        </div>
         <div
           data-pencil-name="Form"
           className="box-border w-full h-fit shrink-0 flex flex-row gap-[12px] justify-start items-start"
@@ -62,7 +65,7 @@ export default function HomeNewsletterSection() {
           data-pencil-name="Benefits"
           className="text-[13px]/[normal] box-border text-[#DBEAFE] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
         >
-          {fieldsOf(post).benefits}
+          {blocks[1] || ""}
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useSlotPosts, fieldsOf } from "@/lib/hooks/useCms";
+import { useSlotPosts, fieldsOf, contentBlocks } from "@/lib/hooks/useCms";
 import { CMS_CATEGORIES, HOME_YOUTH_HEADING_TITLE } from "@/lib/cms-slots";
 import type { Post } from "@/graphql/cms/queries";
 
@@ -90,11 +90,11 @@ export default function HomeYouthSection() {
   // Youth events are the posts in the "Залуучуудын зөвлөл" category
   // (eventMeta custom fields); v1 copies without fields are ignored.
   const posts = youthPosts.filter((p) => fieldsOf(p).date);
-  // Heading text lives in the heading post's custom fields (markup in code).
+  // Heading text is the heading post's Content (simple paragraphs).
   const headingPost = homePosts.find(
     (p) => p.title === HOME_YOUTH_HEADING_TITLE,
   );
-  const heading = fieldsOf(headingPost ?? ({} as Post));
+  const heading = contentBlocks(headingPost?.content);
 
   if (loading || posts.length === 0) return null;
 
@@ -115,7 +115,7 @@ export default function HomeYouthSection() {
           data-pencil-name="Title"
           className="text-[32px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-center [white-space:nowrap]"
         >
-          {heading.heading || "Youth Advisory Board"}
+          {heading[0] || "Youth Advisory Board"}
         </div>
         <div
           data-pencil-name="Underline"
@@ -125,7 +125,7 @@ export default function HomeYouthSection() {
           data-pencil-name="Subtitle"
           className="text-[14px]/[22px] box-border w-[700px] text-[#6B7280] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-center"
         >
-          {heading.subtitle ||
+          {heading[1] ||
             "Залуучуудын зөвлөлийн арга хэмжээ, чуулган, сургалт, төслүүд"}
         </div>
       </div>

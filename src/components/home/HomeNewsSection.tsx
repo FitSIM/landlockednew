@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePosts, useSlotPosts, fieldsOf } from "@/lib/hooks/useCms";
+import { usePosts, useSlotPosts, contentBlocks } from "@/lib/hooks/useCms";
 import { CMS_CATEGORIES, HOME_NEWS_HEADING_TITLE } from "@/lib/cms-slots";
 import type { Post } from "@/graphql/cms/queries";
 
@@ -64,12 +64,11 @@ function SmallCard({ post }: { post: Post }) {
 export default function HomeNewsSection() {
   const { posts, loading } = usePosts("news");
   const { posts: homePosts } = useSlotPosts(CMS_CATEGORIES.home);
-  // Heading text lives in the heading post's custom fields so editors never
-  // have to touch markup (the admin editor strips it).
+  // Heading text is the heading post's Content (simple paragraphs).
   const headingPost = homePosts.find(
     (p) => p.title === HOME_NEWS_HEADING_TITLE,
   );
-  const heading = fieldsOf(headingPost ?? ({} as Post));
+  const heading = contentBlocks(headingPost?.content);
 
   if (loading || posts.length === 0) return null;
 
@@ -86,18 +85,18 @@ export default function HomeNewsSection() {
         data-pencil-name="News Title"
         className="text-[36px]/[normal] box-border text-[#111827] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
       >
-        {heading.heading || "Онцлох мэдээ"}
+        {heading[0] || "Онцлох мэдээ"}
       </div>
       <div
         data-pencil-name="News Underline"
         className="box-border w-[60px] h-[4px] shrink-0 bg-[#1E3A8A] rounded-[2px]"
       />
       <Link
-        href={heading.linkUrl || "/en/news"}
+        href="/en/news"
         data-pencil-name="News Subtitle"
         className="box-border w-fit h-[40px] shrink-0 flex flex-row gap-0 p-[0px_24px] justify-center items-center bg-[#1E3A8A] rounded-[999px] text-[14px]/[normal] text-[#FFFFFF] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap] transition-colors hover:bg-[#0F2447]"
       >
-        {heading.linkLabel || "Бүх мэдээ"}
+        {heading[1] || "Бүх мэдээ"}
       </Link>
 
       <Link

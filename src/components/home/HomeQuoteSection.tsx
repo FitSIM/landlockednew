@@ -1,10 +1,10 @@
 "use client";
 
-import { useSlotPosts, fieldsOf } from "@/lib/hooks/useCms";
+import { useSlotPosts, contentBlocks } from "@/lib/hooks/useCms";
 import { CMS_CATEGORIES, HOME_QUOTE_TITLE } from "@/lib/cms-slots";
 
-// Homepage quote: the quote post in the home category (content = quote text,
-// custom field "attribution").
+// Homepage quote: the quote post in the home category. Content is simple
+// paragraphs: [0] = quote text, [1] = attribution.
 export default function HomeQuoteSection() {
   const { posts, loading } = useSlotPosts(CMS_CATEGORIES.home);
 
@@ -12,6 +12,8 @@ export default function HomeQuoteSection() {
 
   const post = posts.find((p) => p.title === HOME_QUOTE_TITLE);
   if (!post) return null;
+
+  const blocks = contentBlocks(post.content);
 
   return (
     <div className="pencil-page">
@@ -28,13 +30,14 @@ export default function HomeQuoteSection() {
       <div
         data-pencil-name="Quote Text"
         className="text-[22px]/[35px] box-border w-[900px] text-[#FFFFFF] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-center"
-        dangerouslySetInnerHTML={{ __html: post.content || "" }}
-      />
+      >
+        {blocks[0] || ""}
+      </div>
       <div
         data-pencil-name="Quote Attribution"
         className="text-[14px]/[normal] box-border text-[#DBEAFE] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
       >
-        {fieldsOf(post).attribution}
+        {blocks[1] || ""}
       </div>
     </div>
     </div>

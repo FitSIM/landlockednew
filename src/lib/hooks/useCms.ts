@@ -244,17 +244,28 @@ export function useSlotPosts(categoryId: string | undefined, titlePrefix?: strin
 // content / static snapshot chain).
 //
 // Section posts store their design markup in a "template" custom field with
-// {{textN}} tokens and the editable strings as text1..textN custom fields.
-// This keeps the markup out of the admin rich-text editor's reach (it strips
-// custom HTML on save) while every string stays editable via safe form
-// fields. Posts without a template field render their content as-is.
+// {{textN}} tokens; the post's CONTENT holds the editable text as simple
+// editor-native paragraphs (<p>). The Nth paragraph replaces {{textN}} —
+// so editing the Content field in the admin updates the site directly,
+// while the markup lives outside the editor's reach (it strips custom HTML).
+// Falls back to the original textN field values when paragraphs are missing.
+export function contentBlocks(content?: string): string[] {
+  return (content ?? "")
+    .split(/<\/p>\s*<p[^>]*>/i)
+    .map((chunk) => chunk.replace(/<\/?p[^>]*>/gi, "").replace(/<[^>]+>/g, "").trim())
+    .filter(Boolean);
+}
+
 export function renderSectionPost(post: Post): string {
   const fields = fieldsOf(post);
   if (!fields.template) return post.content ?? "";
+  const blocks = contentBlocks(post.content);
   let html = fields.template;
   for (const [key, value] of Object.entries(fields)) {
     if (key === "template" || key === "order") continue;
-    html = html.split(`{{${key}}}`).join(value ?? "");
+    const index = Number(key.replace("text", "")) - 1;
+    const replacement = blocks[index] ?? value ?? "";
+    html = html.split(`{{${key}}}`).join(replacement);
   }
   return html;
 }
