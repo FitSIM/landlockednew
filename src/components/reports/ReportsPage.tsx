@@ -73,11 +73,11 @@ export default function ReportsPage() {
   // Carousel cards come from the "Тайлан" category; the generated year
   // archive remains as the fallback when it has no posts.
   const items: ReportCardItem[] = reportPosts.length
-    ? reportPosts.map((p) => ({
-        badge: fieldsOf(p).year ? `${fieldsOf(p).year} оны тайлан` : "Тайлан",
-        title: p.title || "",
+    ? reportPosts.map((p, i) => ({
+        badge: "Архив",
+        title: fieldsOf(p).year || p.title || "",
         body: (p.excerpt || (p.content ?? "").replace(/<[^>]+>/g, "")).trim(),
-        image: p.images?.[0]?.url || reportCardImages[0],
+        image: p.images?.[0]?.url || reportCardImages[i % reportCardImages.length],
       }))
     : YEARS.map((year) => ({
         badge: "Архив",

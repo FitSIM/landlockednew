@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePosts, useSlotPosts } from "@/lib/hooks/useCms";
+import { usePosts, useSlotPosts, fieldsOf } from "@/lib/hooks/useCms";
 import { CMS_CATEGORIES, HOME_NEWS_HEADING_TITLE } from "@/lib/cms-slots";
 import type { Post } from "@/graphql/cms/queries";
 
@@ -64,9 +64,12 @@ function SmallCard({ post }: { post: Post }) {
 export default function HomeNewsSection() {
   const { posts, loading } = usePosts("news");
   const { posts: homePosts } = useSlotPosts(CMS_CATEGORIES.home);
-  const headingHtml = homePosts.find(
+  // Heading text lives in the heading post's custom fields so editors never
+  // have to touch markup (the admin editor strips it).
+  const headingPost = homePosts.find(
     (p) => p.title === HOME_NEWS_HEADING_TITLE,
-  )?.content;
+  );
+  const heading = fieldsOf(headingPost ?? ({} as Post));
 
   if (loading || posts.length === 0) return null;
 
@@ -79,9 +82,23 @@ export default function HomeNewsSection() {
         data-pencil-name="News Section"
         className="box-border w-full h-fit shrink-0 flex flex-col gap-[32px] p-[80px_160px] justify-start items-center bg-[#FFFFFF]"
       >
-      {headingHtml ? (
-        <div className="contents" dangerouslySetInnerHTML={{ __html: headingHtml }} />
-      ) : null}
+      <div
+        data-pencil-name="News Title"
+        className="text-[36px]/[normal] box-border text-[#111827] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-left [white-space:nowrap]"
+      >
+        {heading.heading || "Онцлох мэдээ"}
+      </div>
+      <div
+        data-pencil-name="News Underline"
+        className="box-border w-[60px] h-[4px] shrink-0 bg-[#1E3A8A] rounded-[2px]"
+      />
+      <Link
+        href={heading.linkUrl || "/en/news"}
+        data-pencil-name="News Subtitle"
+        className="box-border w-fit h-[40px] shrink-0 flex flex-row gap-0 p-[0px_24px] justify-center items-center bg-[#1E3A8A] rounded-[999px] text-[14px]/[normal] text-[#FFFFFF] font-['Space_Grotesk',system-ui,sans-serif] font-semibold text-left [white-space:nowrap] transition-colors hover:bg-[#0F2447]"
+      >
+        {heading.linkLabel || "Бүх мэдээ"}
+      </Link>
 
       <Link
         href={`/en/${featured.slug}`}

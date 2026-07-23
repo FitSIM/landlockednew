@@ -90,9 +90,11 @@ export default function HomeYouthSection() {
   // Youth events are the posts in the "Залуучуудын зөвлөл" category
   // (eventMeta custom fields); v1 copies without fields are ignored.
   const posts = youthPosts.filter((p) => fieldsOf(p).date);
-  const headingHtml = homePosts.find(
+  // Heading text lives in the heading post's custom fields (markup in code).
+  const headingPost = homePosts.find(
     (p) => p.title === HOME_YOUTH_HEADING_TITLE,
-  )?.content;
+  );
+  const heading = fieldsOf(headingPost ?? ({} as Post));
 
   if (loading || posts.length === 0) return null;
 
@@ -105,9 +107,28 @@ export default function HomeYouthSection() {
         data-pencil-name="Youth Section"
         className="box-border w-full h-fit shrink-0 flex flex-col gap-[40px] p-[80px_160px] justify-start items-start bg-[#F5F5F5]"
       >
-      {headingHtml ? (
-        <div className="contents" dangerouslySetInnerHTML={{ __html: headingHtml }} />
-      ) : null}
+      <div
+        data-pencil-name="Section Heading"
+        className="box-border w-full h-fit shrink-0 flex flex-col gap-[10px] justify-start items-center"
+      >
+        <div
+          data-pencil-name="Title"
+          className="text-[32px]/[normal] box-border text-[#1E3A8A] font-['Space_Grotesk',system-ui,sans-serif] font-bold text-center [white-space:nowrap]"
+        >
+          {heading.heading || "Youth Advisory Board"}
+        </div>
+        <div
+          data-pencil-name="Underline"
+          className="box-border w-[48px] h-[4px] shrink-0 bg-[#1E3A8A] rounded-[2px]"
+        />
+        <div
+          data-pencil-name="Subtitle"
+          className="text-[14px]/[22px] box-border w-[700px] text-[#6B7280] font-['Space_Grotesk',system-ui,sans-serif] font-normal text-center"
+        >
+          {heading.subtitle ||
+            "Залуучуудын зөвлөлийн арга хэмжээ, чуулган, сургалт, төслүүд"}
+        </div>
+      </div>
       {rows.map((row, i) => (
         <div
           key={i}

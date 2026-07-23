@@ -242,6 +242,23 @@ export function useSlotPosts(categoryId: string | undefined, titlePrefix?: strin
 // existing pencil-page CSS selectors keep working). Returns undefined while
 // loading, null when the slot has no posts (caller falls back to the page
 // content / static snapshot chain).
+//
+// Section posts store their design markup in a "template" custom field with
+// {{textN}} tokens and the editable strings as text1..textN custom fields.
+// This keeps the markup out of the admin rich-text editor's reach (it strips
+// custom HTML on save) while every string stays editable via safe form
+// fields. Posts without a template field render their content as-is.
+export function renderSectionPost(post: Post): string {
+  const fields = fieldsOf(post);
+  if (!fields.template) return post.content ?? "";
+  let html = fields.template;
+  for (const [key, value] of Object.entries(fields)) {
+    if (key === "template" || key === "order") continue;
+    html = html.split(`{{${key}}}`).join(value ?? "");
+  }
+  return html;
+}
+
 export function useSectionHtml(
   source: { categoryId: string; titlePrefix: string } | undefined,
 ) {
@@ -253,5 +270,5 @@ export function useSectionHtml(
   if (!source) return { html: null, loading: false };
   if (loading) return { html: undefined, loading: true };
   if (error || posts.length === 0) return { html: null, loading: false };
-  return { html: posts.map((p) => p.content ?? "").join("\n"), loading: false };
+  return { html: posts.map(renderSectionPost).join("\n"), loading: false };
 }
