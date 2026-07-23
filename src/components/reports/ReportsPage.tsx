@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import LuxuryHero from "@/components/luxury/LuxuryHero";
 import { images, reportCardImages } from "@/lib/images";
 import { AnimatedText } from "@/components/motion/animations";
-import { useSlotPosts, fieldsOf } from "@/lib/hooks/useCms";
+import { useSlotPosts, contentBlocks } from "@/lib/hooks/useCms";
 import { CMS_CATEGORIES } from "@/lib/cms-slots";
 
 const YEARS = Array.from({ length: 17 }, (_, i) => 2025 - i);
@@ -75,8 +75,8 @@ export default function ReportsPage() {
   const items: ReportCardItem[] = reportPosts.length
     ? reportPosts.map((p, i) => ({
         badge: "Архив",
-        title: fieldsOf(p).year || p.title || "",
-        body: (p.excerpt || (p.content ?? "").replace(/<[^>]+>/g, "")).trim(),
+        title: contentBlocks(p.content)[0] || p.title || "",
+        body: contentBlocks(p.content)[1] || "",
         image: p.images?.[0]?.url || reportCardImages[i % reportCardImages.length],
       }))
     : YEARS.map((year) => ({

@@ -6,7 +6,7 @@ import Link from "next/link";
 import LuxuryHero from "@/components/luxury/LuxuryHero";
 import { images, documentCardImages } from "@/lib/images";
 import { AnimatedText, MagneticButton } from "@/components/motion/animations";
-import { usePosts, useSlotPosts, fieldsOf } from "@/lib/hooks/useCms";
+import { usePosts, useSlotPosts, contentBlocks } from "@/lib/hooks/useCms";
 import { CMS_CATEGORIES } from "@/lib/cms-slots";
 
 const fallbackUpdates = [
@@ -385,25 +385,28 @@ export default function YouthAdvisoryPage() {
   const { posts: newsPosts } = usePosts("news");
   const { posts: youthEventPosts } = useSlotPosts(CMS_CATEGORIES.youth);
 
-  // Youth events are the posts in the "Залуучуудын зөвлөл" category
-  // (eventMeta custom fields); the hardcoded list remains as the fallback.
+  // Youth events are the posts in the "Залуучуудын зөвлөл" category.
+  // Content blocks: [0]=tag, [1]=date, [2]=location, [3]=body, [4]=fullInfo,
+  // [5]=outcomes, [6]=speakers, [7]=schedule (list items one per line).
   const youthEvents = useMemo<YouthEvent[]>(() => {
-    const valid = youthEventPosts.filter((p) => fieldsOf(p).date);
+    const valid = youthEventPosts.filter(
+      (p) => contentBlocks(p.content).length >= 3,
+    );
     if (!valid.length) return fallbackYouthEvents;
     const lines = (s?: string) => (s ? s.split("\n").filter(Boolean) : []);
     return valid.map((p) => {
-      const m = fieldsOf(p);
+      const b = contentBlocks(p.content);
       return {
         title: p.title || "",
-        tag: m.tag || "",
-        body: (p.excerpt || (p.content ?? "").replace(/<[^>]+>/g, "")).trim(),
-        location: m.location || "",
-        date: m.date || "",
+        tag: b[0] || "",
+        date: b[1] || "",
+        location: b[2] || "",
+        body: b[3] || (p.excerpt ?? ""),
+        fullInfo: b[4] || "",
+        outcomes: lines(b[5]),
+        speakers: lines(b[6]),
+        schedule: lines(b[7]),
         image: p.images?.[0]?.url || documentCardImages[0],
-        fullInfo: m.fullInfo || "",
-        outcomes: lines(m.outcomes),
-        speakers: lines(m.speakers),
-        schedule: lines(m.schedule),
       };
     });
   }, [youthEventPosts]);

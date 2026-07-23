@@ -13,7 +13,9 @@ function stripHtml(html?: string) {
 }
 
 function EventCard({ post }: { post: Post }) {
-  const meta = fieldsOf(post);
+  // content blocks: [0]=tag, [1]=date, [2]=location, [3]=body
+  const blocks = contentBlocks(post.content);
+  const meta = { date: blocks[1] || "", location: blocks[2] || "" };
   return (
     <div
       data-pencil-name={`Event Card ${post.title ?? ""}`}
@@ -87,9 +89,9 @@ export default function HomeYouthSection() {
   const { posts: homePosts, loading } = useSlotPosts(CMS_CATEGORIES.home);
   const { posts: youthPosts } = useSlotPosts(CMS_CATEGORIES.youth);
 
-  // Youth events are the posts in the "Залуучуудын зөвлөл" category
-  // (eventMeta custom fields); v1 copies without fields are ignored.
-  const posts = youthPosts.filter((p) => fieldsOf(p).date);
+  // Youth events are the posts in the "Залуучуудын зөвлөл" category;
+  // editable text lives in their Content as simple paragraphs.
+  const posts = youthPosts.filter((p) => contentBlocks(p.content).length >= 3);
   // Heading text is the heading post's Content (simple paragraphs).
   const headingPost = homePosts.find(
     (p) => p.title === HOME_YOUTH_HEADING_TITLE,

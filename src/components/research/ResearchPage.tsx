@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import LuxuryHero from "@/components/luxury/LuxuryHero";
 import { images, documentCardImages } from "@/lib/images";
-import { useSlotPosts, fieldsOf } from "@/lib/hooks/useCms";
+import { useSlotPosts, fieldsOf, contentBlocks } from "@/lib/hooks/useCms";
 import { CMS_CATEGORIES } from "@/lib/cms-slots";
 
 const fallbackCategories = [
@@ -195,21 +195,27 @@ export default function ResearchPage() {
   const { posts: researchPosts } = useSlotPosts(CMS_CATEGORIES.research);
 
   const categories = useMemo(() => {
-    const valid = researchPosts.filter((p) => fieldsOf(p).count);
+    // Research categories: title = card title; content blocks [0]=count,
+    // [1]=body; the "group" field links documents (structural, not edited).
+    const valid = researchPosts.filter(
+      (p) => fieldsOf(p).group && contentBlocks(p.content).length >= 2,
+    );
     if (!valid.length) return fallbackCategories;
     return valid.map((p) => {
       const m = fieldsOf(p);
+      const b = contentBlocks(p.content);
       return {
         title: p.title || "",
-        count: m.count || "",
+        count: b[0] || "",
         id: m.group || p._id,
         image: p.images?.[0]?.url || images.policy,
-        body: (p.excerpt || (p.content ?? "").replace(/<[^>]+>/g, "")).trim(),
+        body: b[1] || "",
       };
     });
   }, [researchPosts]);
 
   const categoryDocuments = useMemo(() => {
+    // Documents: title = name; content block [0] = "date • type • size" meta.
     const valid = researchPosts.filter((p) => fieldsOf(p).fileType);
     if (!valid.length) return fallbackCategoryDocuments;
     const grouped: Record<string, { title: string; meta: string }[]> = {};
@@ -218,18 +224,19 @@ export default function ResearchPage() {
       const group = m.group || "misc";
       (grouped[group] ??= []).push({
         title: p.title || "",
-        meta: [m.date, m.fileType, m.fileSize].filter(Boolean).join(" • "),
+        meta: contentBlocks(p.content)[0] || "",
       });
     }
     return grouped;
   }, [researchPosts]);
 
   const reports = useMemo(() => {
+    // Reports: title = name; content blocks [0]=year, [1]=body.
     const valid = researchPosts.filter((p) => fieldsOf(p).year);
     if (!valid.length) return fallbackReports;
     return valid.map((p) => ({
       title: p.title || "",
-      body: (p.excerpt || (p.content ?? "").replace(/<[^>]+>/g, "")).trim(),
+      body: contentBlocks(p.content)[1] || "",
       image: p.images?.[0]?.url || images.doc1,
     }));
   }, [researchPosts]);

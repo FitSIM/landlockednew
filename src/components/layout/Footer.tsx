@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useLocale } from "next-intl";
 import { staggerContainer, fadeInUp, lineReveal } from "@/components/motion/animations";
-import { useMenus, useSlotPosts, fieldsOf } from "@/lib/hooks/useCms";
+import { useMenus, useSlotPosts, contentBlocks } from "@/lib/hooks/useCms";
 import { CMS_CATEGORIES } from "@/lib/cms-slots";
 
 const footerLinks = [
@@ -119,18 +119,17 @@ export default function Footer() {
   const cmsMenu = useMenus("footer");
   const { posts: contactPosts } = useSlotPosts(CMS_CATEGORIES.contact);
 
-  // Contact block + org description come live from the contact-info post
-  // (the v1 seed copy lost its fields, so pick the post that has them).
+  // Contact block + org description are the contact post's Content
+  // paragraphs: [0]=address, [1]=phone, [2]=email, [4]=orgDescription.
   const contact = useMemo(() => {
-    const post = contactPosts.find((p) => fieldsOf(p).address);
-    const m = post ? fieldsOf(post) : null;
+    const blocks = contentBlocks(contactPosts[0]?.content);
     return {
       description:
-        m?.orgDescription ||
+        blocks[4] ||
         "International Research Center of Landlocked Developing Countries. We work in policy research, knowledge hub, and international cooperation.",
-      address: m?.address || "Ulaanbaatar, Mongolia",
-      phone: m?.phone || "+976-11-123456",
-      email: m?.email || "info@lldc.org",
+      address: blocks[0] || "Ulaanbaatar, Mongolia",
+      phone: blocks[1] || "+976-11-123456",
+      email: blocks[2] || "info@lldc.org",
     };
   }, [contactPosts]);
 

@@ -6,7 +6,7 @@ import LuxuryHero from "@/components/luxury/LuxuryHero";
 import Image from "@/components/common/Image";
 import { images, documentCardImages } from "@/lib/images";
 import { AnimatedText, MagneticButton } from "@/components/motion/animations";
-import { useSlotPosts, fieldsOf } from "@/lib/hooks/useCms";
+import { useSlotPosts, contentBlocks } from "@/lib/hooks/useCms";
 import { CMS_CATEGORIES } from "@/lib/cms-slots";
 
 const filters = ["Бүх", "Арга хэмжээ", "Уулзалт", "Ажлын айлчлал", "Бага хурал"];
@@ -34,28 +34,30 @@ export default function PhotosPage() {
   const [selected, setSelected] = useState<{ image: string; tag: string } | null>(null);
   const { posts: galleryPosts } = useSlotPosts(CMS_CATEGORIES.gallery);
 
-  // Gallery comes live from the photos category (featured flag marks the
-  // photo story); hardcoded data remains as the fallback.
+  // Gallery comes live from the photos category. Content blocks per post:
+  // [0]=tag, [1]=size, [2]=meta. Featured flag marks the photo story.
   const { featured, gallery } = useMemo(() => {
-    const valid = galleryPosts.filter((p) => fieldsOf(p).tag);
+    const valid = galleryPosts.filter(
+      (p) => contentBlocks(p.content).length >= 2,
+    );
     if (!valid.length) {
       return { featured: fallbackFeatured, gallery: fallbackGallery };
     }
     const toItem = (p: (typeof valid)[number]) => {
-      const m = fieldsOf(p);
+      const b = contentBlocks(p.content);
       return {
-        tag: m.tag || "",
+        tag: b[0] || "",
         image: p.images?.[0]?.url || documentCardImages[0],
-        size: m.size || "normal",
+        size: b[1] || "normal",
       };
     };
     const featuredPost = valid.find((p) => p.featured) ?? valid[0];
-    const fm = fieldsOf(featuredPost);
+    const fb = contentBlocks(featuredPost.content);
     return {
       featured: {
         title: featuredPost.title || "",
-        body: (featuredPost.excerpt || (featuredPost.content ?? "").replace(/<[^>]+>/g, "")).trim(),
-        meta: fm.meta || "",
+        body: (featuredPost.excerpt || "").trim(),
+        meta: fb[2] || "",
         image: featuredPost.images?.[0]?.url || images.heroPhotos,
       },
       gallery: valid.filter((p) => p._id !== featuredPost._id).map(toItem),

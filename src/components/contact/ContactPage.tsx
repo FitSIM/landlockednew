@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import LuxuryHero from "@/components/luxury/LuxuryHero";
 import { images } from "@/lib/images";
 import { AnimatedText, MagneticButton, ParallaxImage } from "@/components/motion/animations";
-import { useSlotPosts, fieldsOf } from "@/lib/hooks/useCms";
+import { useSlotPosts, contentBlocks } from "@/lib/hooks/useCms";
 import { CMS_CATEGORIES } from "@/lib/cms-slots";
 
 const fallbackContactInfo = [
@@ -24,17 +24,16 @@ const formFields = [
 export default function ContactPage() {
   const { posts: contactPosts } = useSlotPosts(CMS_CATEGORIES.contact);
 
-  // Contact details come live from the contact-info post's custom fields
-  // (the v1 seed copy lost its fields, so pick the post that has them).
+  // Contact details are the contact post's Content paragraphs:
+  // [0]=address, [1]=phone, [2]=email, [3]=social.
   const contactInfo = useMemo(() => {
-    const post = contactPosts.find((p) => fieldsOf(p).address);
-    const m = post ? fieldsOf(post) : null;
-    if (!m) return fallbackContactInfo;
+    const blocks = contentBlocks(contactPosts[0]?.content);
+    if (!blocks.length) return fallbackContactInfo;
     return [
-      { label: "Хаяг", value: m.address || "" },
-      { label: "Утас", value: m.phone || "" },
-      { label: "И-мэйл", value: m.email || "" },
-      { label: "Сошиал хуудас", value: m.social || "" },
+      { label: "Хаяг", value: blocks[0] || "" },
+      { label: "Утас", value: blocks[1] || "" },
+      { label: "И-мэйл", value: blocks[2] || "" },
+      { label: "Сошиал хуудас", value: blocks[3] || "" },
     ];
   }, [contactPosts]);
   return (
