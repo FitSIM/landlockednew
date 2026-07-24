@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { motion } from "framer-motion";
 import LuxuryHero from "@/components/luxury/LuxuryHero";
 import { images } from "@/lib/images";
